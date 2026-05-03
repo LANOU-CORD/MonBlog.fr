@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MonBlog.fr — Le blog de tout et n'importe quoi</title>
+<link href="https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=Trebuchet+MS:wght@400;700&family=Verdana&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: #c8c8c8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23bbbbbb'/%3E%3Crect width='1' height='1' fill='%23c8c8c8'/%3E%3C/svg%3E");
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 13px;
+  color: #333;
+  min-height: 100vh;
+}
+
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; color: #003399; }
+
+/* ── HEADER ── */
+#header {
+  background: linear-gradient(180deg, #2a5fa8 0%, #1a3f7a 40%, #0d2550 100%);
+  border-bottom: 3px solid #0a1e40;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+  padding: 0;
+}
+.header-top {
+  background: linear-gradient(180deg, #3a6fc0 0%, #1e4a90 100%);
+  padding: 18px 20px 14px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 1px solid #4080d0;
+}
+.site-title {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6), 0 0 20px rgba(100,160,255,0.4);
+  letter-spacing: -0.5px;
+}
+.site-title span { color: #ffdd44; }
+.site-tagline {
+  font-size: 11px;
+  color: #a8c8f0;
+  font-style: italic;
+  margin-top: 3px;
+}
+.header-date {
+  font-size: 11px;
+  color: #a8c8f0;
+  text-align: right;
+}
+.header-date strong { color: #fff; display: block; font-size: 13px; }
+
+/* NAV BAR */
+#navbar {
+  background: linear-gradient(180deg, #1e4a90 0%, #0d2550 100%);
+  border-top: 1px solid #3a6fc0;
+  border-bottom: 3px solid #081830;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.nav-item {
+  display: inline-block;
+  padding: 8px 16px;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #cce0ff;
+  text-decoration: none;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  background: transparent;
+  transition: background 0.1s;
+}
+.nav-item:hover {
+  background: linear-gradient(180deg, #4a80c8 0%, #2a5fa8 100%);
+  color: #fff;
+  text-decoration: none;
+}
+.nav-item.active {
+  background: linear-gradient(180deg, #ffcc00 0%, #ee9900 100%);
+  color: #222;
+  text-decoration: none;
+  border-radius: 0;
+  text-shadow: none;
+}
+.nav-search {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 0;
+}
+.nav-search input {
+  border: 1px solid #3a6fc0;
+  border-radius: 2px;
+  padding: 3px 6px;
+  font-size: 11px;
+  background: #fff;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
+  width: 140px;
+}
+.nav-search button {
+  background: linear-gradient(180deg, #4a80c8, #2a5fa8);
+  border: 1px solid #1a3f7a;
+  border-radius: 2px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.nav-search button:hover { background: linear-gradient(180deg, #5a90d8, #3a6fb8); }
+
+/* ── LAYOUT ── */
+#wrapper {
+  max-width: 960px;
+  margin: 12px auto;
+  display: flex;
+  gap: 14px;
+  padding: 0 10px;
+}
+
+/* ── MAIN CONTENT ── */
+#content { flex: 1; min-width: 0; }
+
+/* POST */
+.post {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.post-header {
+  background: linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
+  border-bottom: 1px solid #ccc;
+  padding: 10px 14px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.post-title {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1a3f7a;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+}
+.post-title a { color: #1a3f7a; }
+.post-title a:hover { color: #e05500; text-decoration: none; }
+.post-meta {
+  font-size: 10px;
+  color: #777;
+  text-align: right;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+.post-meta .author { color: #0066cc; font-weight: bold; }
+.post-category-badge {
+  display: inline-block;
+  background: linear-gradient(180deg, #ffaa00, #dd8800);
+  color: #fff;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 2px 7px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+.post-body {
+  padding: 14px;
+  line-height: 1.7;
+  font-size: 13px;
+  color: #444;
+}
+.post-body p { margin-bottom: 10px; }
+.post-body .post-img {
+  float: right;
+  margin: 0 0 10px 14px;
+  border: 3px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  width: 180px; height: 110px;
+  background: linear-gradient(135deg, #ddeeff, #bbccee);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: #778;
+  font-style: italic;
+}
+.post-footer {
+  background: linear-gradient(180deg, #f0f0f0, #e4e4e4);
+  border-top: 1px solid #ccc;
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: #666;
+}
+.post-footer a { color: #0066cc; font-size: 11px; }
+.read-more {
+  display: inline-block;
+  background: linear-gradient(180deg, #4a80c8, #2a5fa8);
+  color: #fff !important;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  margin-left: auto;
+  text-decoration: none !important;
+}
+.read-more:hover { background: linear-gradient(180deg, #5a90d8, #3a6fb8); }
+
+/* COMMENTAIRES BADGE */
+.comments-link {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='10' rx='2' fill='%23888' /%3E%3Cpolygon points='4,11 4,15 8,11' fill='%23888'/%3E%3C/svg%3E") no-repeat left center;
+  padding-left: 20px;
+}
+
+/* TAGS */
+.post-tags { font-size: 10px; color: #888; }
+.post-tags a {
+  background: #eef;
+  border: 1px solid #ccf;
+  border-radius: 2px;
+  padding: 1px 5px;
+  color: #339;
+  font-size: 10px;
+}
+
+/* PAGINATION */
+.pagination {
+  background: linear-gradient(180deg, #f5f5f5, #e8e8e8);
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  font-size: 12px;
+  justify-content: center;
+}
+.page-btn {
+  display: inline-block;
+  background: linear-gradient(180deg, #fff, #e8e8e8);
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  padding: 3px 9px;
+  font-size: 12px;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  text-decoration: none;
+}
+.page-btn:hover { background: linear-gradient(180deg, #d0d8f0, #b8c8e8); color: #333; text-decoration: none; }
+.page-btn.current { background: linear-gradient(180deg, #2a5fa8, #1a3f7a); color: #fff; border-color: #0d2550; }
+
+/* ── SIDEBAR ── */
+#sidebar { width: 210px; flex-shrink: 0; }
+
+.widget {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.12);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.widget-title {
+  background: linear-gradient(180deg, #3a6fc0 0%, #1e4a90 100%);
+  color: #fff;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 10px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  letter-spacing: 0.3px;
+  border-bottom: 1px solid #0d2550;
+  text-transform: uppercase;
+}
+.widget-body { padding: 10px; }
+
+/* À PROPOS */
+.about-avatar {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6699cc, #336699);
+  border: 3px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  float: left; margin: 0 10px 8px 0;
+}
+.about-text { font-size: 11px; line-height: 1.6; color: #555; overflow: hidden; }
+
+/* CATÉGORIES */
+.cat-list { list-style: none; }
+.cat-list li {
+  border-bottom: 1px dotted #ddd;
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+.cat-list li:last-child { border-bottom: none; }
+.cat-list a { color: #0066cc; }
+.cat-count {
+  background: #e8e8e8;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0 6px;
+  font-size: 10px;
+  color: #666;
+}
+
+/* ARTICLES RÉCENTS */
+.recent-list { list-style: none; }
+.recent-list li {
+  border-bottom: 1px dotted #ddd;
+  padding: 6px 0;
+  font-size: 11px;
+}
+.recent-list li:last-child { border-bottom: none; }
+.recent-list a { color: #0066cc; line-height: 1.4; display: block; }
+.recent-list .rdate { color: #999; font-size: 10px; }
+
+/* NUAGE DE TAGS */
+.tag-cloud { line-height: 2; }
+.tag-cloud a {
+  display: inline-block;
+  background: linear-gradient(180deg, #e8eef8, #d8e4f0);
+  border: 1px solid #b0c0d8;
+  border-radius: 2px;
+  color: #336699;
+  font-size: 10px;
+  padding: 1px 6px;
+  margin: 2px 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.tag-cloud a:hover { background: linear-gradient(180deg, #c8d8f0, #b0c8e8); text-decoration: none; }
+.tag-cloud .big { font-size: 14px; font-weight: bold; }
+.tag-cloud .medium { font-size: 12px; }
+
+/* ARCHIVES */
+.archives-list { list-style: none; }
+.archives-list li {
+  padding: 4px 0;
+  border-bottom: 1px dotted #ddd;
+  font-size: 11px;
+  display: flex; justify-content: space-between;
+}
+.archives-list li:last-child { border-bottom: none; }
+
+/* STATS */
+.stats-box { font-size: 11px; }
+.stat-row {
+  display: flex; justify-content: space-between;
+  padding: 4px 0; border-bottom: 1px dotted #eee;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-num { font-weight: bold; color: #1a3f7a; }
+
+/* COMPTEUR */
+.visitor-counter {
+  background: #000;
+  border: 2px inset #444;
+  border-radius: 3px;
+  text-align: center;
+  padding: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 22px;
+  color: #00ff00;
+  letter-spacing: 4px;
+  text-shadow: 0 0 8px #00ff00;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
+}
+.counter-label { font-size: 10px; color: #888; text-align: center; margin-top: 5px; font-style: italic; }
+
+/* ANNONCE PUB */
+.pub-banner {
+  background: linear-gradient(135deg, #fff8e0, #fff0b0);
+  border: 2px dashed #ffaa00;
+  border-radius: 3px;
+  text-align: center;
+  padding: 12px 8px;
+  font-size: 11px;
+  color: #885500;
+}
+.pub-banner strong { display: block; font-size: 14px; color: #cc4400; }
+
+/* ── FOOTER ── */
+#footer {
+  background: linear-gradient(180deg, #2a2a2a, #111);
+  border-top: 3px solid #0d2550;
+  color: #aaa;
+  text-align: center;
+  padding: 16px;
+  font-size: 11px;
+  margin-top: 10px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.4);
+}
+#footer a { color: #6699cc; }
+.footer-links { margin-bottom: 6px; }
+.footer-links a { margin: 0 8px; }
+
+/* ── CHATBOX ── */
+#chatbox-section {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+#chatbox-section .post-header {
+  background: linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
+  border-bottom: 1px solid #ccc;
+  padding: 10px 14px;
+}
+#chatbox-section .post-header h2 {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #1a3f7a;
+}
+#chatbox-section .post-header p {
+  font-size: 10px; color: #777; margin-top: 2px;
+}
+#chat-messages {
+  padding: 10px 14px;
+  max-height: 380px;
+  overflow-y: auto;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#chat-messages:empty::before {
+  content: "Aucun message pour l'instant... Sois le premier à écrire ! 😊";
+  color: #aaa; font-style: italic; font-size: 12px;
+  display: block; text-align: center; padding: 20px 0;
+}
+.chat-msg {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+.chat-msg.me { flex-direction: row-reverse; }
+.chat-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+  border: 2px solid #ddd;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+.chat-avatar.user-avatar { background: linear-gradient(135deg, #6699cc, #336699); }
+.chat-avatar.claude-avatar { background: linear-gradient(135deg, #e8a030, #cc7700); }
+.chat-bubble {
+  max-width: 75%;
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.08);
+}
+.chat-msg.me .chat-bubble {
+  background: linear-gradient(180deg, #d8eaff, #c0d8f8);
+  border-color: #a0c0e8;
+  text-align: right;
+}
+.chat-msg.other .chat-bubble {
+  background: linear-gradient(180deg, #fff, #f4f4f4);
+  border-color: #ddd;
+}
+.chat-msg.claude .chat-bubble {
+  background: linear-gradient(180deg, #fff8e8, #fef0cc);
+  border-color: #f0cc88;
+}
+.chat-name {
+  font-size: 10px; font-weight: bold; color: #555;
+  margin-bottom: 2px;
+}
+.chat-msg.me .chat-name { text-align: right; color: #2255aa; }
+.chat-msg.claude .chat-name { color: #996600; }
+.chat-time { font-size: 9px; color: #bbb; margin-top: 3px; }
+.chat-msg.me .chat-time { text-align: right; }
+.typing-indicator { display: none; align-items: center; gap: 6px; padding: 4px 0; }
+.typing-indicator.visible { display: flex; }
+.typing-dot {
+  width: 7px; height: 7px; background: #bbb; border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: .2s; }
+.typing-dot:nth-child(3) { animation-delay: .4s; }
+@keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+#chat-form {
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #f0f0f0, #e4e4e4);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.chat-prenom-row {
+  display: flex; gap: 8px; align-items: center;
+  font-size: 11px; color: #555;
+}
+.chat-prenom-row input {
+  border: 1px solid #bbb; border-radius: 2px;
+  padding: 4px 7px; font-size: 11px;
+  background: #fff; box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+  width: 130px;
+}
+.chat-input-row { display: flex; gap: 6px; }
+#chat-input {
+  flex: 1;
+  border: 1px solid #bbb; border-radius: 2px;
+  padding: 6px 8px; font-size: 12px;
+  font-family: Verdana, sans-serif;
+  background: #fff; box-shadow: inset 1px 1px 3px rgba(0,0,0,0.15);
+  resize: none; height: 52px;
+}
+#chat-send {
+  background: linear-gradient(180deg, #4a80c8, #2a5fa8);
+  color: #fff; border: 1px solid #1a3f7a;
+  border-radius: 2px; padding: 0 14px;
+  font-size: 12px; font-weight: bold; font-family: 'Trebuchet MS', sans-serif;
+  cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  white-space: nowrap;
+}
+#chat-send:hover { background: linear-gradient(180deg, #5a90d8, #3a6fb8); }
+#chat-send:active { transform: translateY(1px); }
+.chat-hint { font-size: 10px; color: #888; font-style: italic; }
+#chat-clear {
+  background: none; border: none; font-size: 10px;
+  color: #cc3300; cursor: pointer; text-decoration: underline;
+  font-family: Verdana, sans-serif;
+}
+#chat-clear:hover { color: #ff0000; }
+
+/* SÉPARATEUR DÉCORATIF */
+.divider {
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #2a5fa8 20%, #ffdd44 50%, #2a5fa8 80%, transparent);
+  margin: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <div class="header-top">
+    <div>
+      <div class="site-title">Mon<span>Blog</span>.fr</div>
+      <div class="site-tagline">✏️ Le blog de tout et n'importe quoi depuis 2009</div>
+    </div>
+    <div class="header-date">
+      <strong id="dateAujourd">Dimanche 3 mai 2026</strong>
+      Bonne lecture ! 😊
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div id="navbar">
+    <a class="nav-item active" href="javascript:void(0)">🏠 Accueil</a>
+    <a class="nav-item" href="javascript:void(0)">💬 Actualité</a>
+    <a class="nav-item" href="javascript:void(0)">🎮 Gaming</a>
+    <a class="nav-item" href="javascript:void(0)">🎵 Musique</a>
+    <a class="nav-item" href="javascript:void(0)">🍕 Bouffe</a>
+    <a class="nav-item" href="javascript:void(0)">😂 Humour</a>
+    <a class="nav-item" href="javascript:void(0)">📷 Photos</a>
+    <a class="nav-item" href="javascript:void(0)">✉️ Contact</a>
+    <div class="nav-search">
+      <input type="text" placeholder="Rechercher..." />
+      <button>Go</button>
+    </div>
+  </div>
+</div>
+
+<!-- WRAPPER -->
+<div id="wrapper">
+
+  <!-- CONTENU PRINCIPAL -->
+  <div id="content">
+
+    <!-- POST 1 -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-title"><a href="javascript:void(0)">Mon top 10 des films de 2011 — vous allez pas être déçus !!</a></div>
+          <div><span class="post-category-badge">🎬 Cinéma</span></div>
+        </div>
+        <div class="post-meta">
+          Posté par <span class="author">Kévin_93</span><br>
+          📅 14 mars 2011<br>
+          🕐 22:47
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="post-img">[ image du film ]</div>
+        <p>Salut tout le monde !! 😀 Alors voilà j'ai enfin pris le temps de faire mon top films de cette année et franchement y'a eu du lourd. Je sais pas vous mais moi le cinéma en ce moment c'est vraiment trop fort.</p>
+        <p>Bon je vais pas tout spoiler ici mais en gros si vous avez pas vu <strong>Inception</strong> vous vivez pas. Seriously. Mon pote Julien y'est allé 3 fois au ciné tellement c'est ouf. Et la fin on en parle même pas, j'arrive encore pas à dormir 😱</p>
+        <p>Sinon j'ai aussi adoré Fast Five, ouais je sais c'est bourrin mais assumez les gens ! Des fois on a juste envie de voir des bagnoles exploser...</p>
+      </div>
+      <div class="post-footer">
+        <a href="javascript:void(0)" class="comments-link">💬 47 commentaires</a>
+        <span class="post-tags">🏷️ <a href="javascript:void(0)">cinéma</a> <a href="javascript:void(0)">films</a> <a href="javascript:void(0)">top10</a> <a href="javascript:void(0)">inception</a></span>
+        <a href="javascript:void(0)" class="read-more">Lire la suite »</a>
+      </div>
+    </div>
+
+    <!-- POST 2 -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-title"><a href="javascript:void(0)">J'ai testé le nouveau McDo près de chez moi — mon avis complet</a></div>
+          <div><span class="post-category-badge" style="background:linear-gradient(180deg,#ee6600,#cc4400)">🍔 Bouffe</span></div>
+        </div>
+        <div class="post-meta">
+          Posté par <span class="author">Kévin_93</span><br>
+          📅 2 mars 2011<br>
+          🕐 19:12
+        </div>
+      </div>
+      <div class="post-body">
+        <p>Alors comme promis dans mon dernier post j'y suis allé tester le McDo qui vient d'ouvrir sur la nationale. VERDICT : c'est... un McDo quoi 😂 nan sérieusement c'est propre, le service est rapide, j'ai pris un Big Mac + McFlurry Oréo et j'ai pas été déçu.</p>
+        <p>Par contre le WiFi ils l'ont pas encore activé, le mec de la caisse savait pas quand ça serait dispo. Franchement en 2011 un McDo sans WiFi c'est un peu la honte non ? Ma génération ça peut pas manger sans regarder son téléphone 😅</p>
+        <p>Bref si vous passez par là n'hésitez pas, et dites moi en commentaire votre commande préférée !</p>
+      </div>
+      <div class="post-footer">
+        <a href="javascript:void(0)" class="comments-link">💬 23 commentaires</a>
+        <span class="post-tags">🏷️ <a href="javascript:void(0)">mcdo</a> <a href="javascript:void(0)">bouffe</a> <a href="javascript:void(0)">test</a></span>
+        <a href="javascript:void(0)" class="read-more">Lire la suite »</a>
+      </div>
+    </div>
+
+    <!-- POST 3 -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-title"><a href="javascript:void(0)">Pourquoi je kiffe Skyrim et pourquoi vous devriez aussi</a></div>
+          <div><span class="post-category-badge" style="background:linear-gradient(180deg,#448800,#226600)">🎮 Gaming</span></div>
+        </div>
+        <div class="post-meta">
+          Posté par <span class="author">Kévin_93</span><br>
+          📅 19 nov. 2011<br>
+          🕐 14:33
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="post-img" style="background:linear-gradient(135deg,#334422,#556633);">[ screenshot Skyrim ]</div>
+        <p><strong>SKYRIM EST SORTI AUJOURD'HUI ET JE SUIS MORT.</strong> 🔥🔥🔥 J'ai pris ma journée (chut dites rien à ma mère), j'ai fait 8h de jeu non-stop et franchement les mecs Bethesda ils se sont surpassés.</p>
+        <p>Déjà le truc c'est que les graphismes sont dingues. Ma CG elle chauffe un peu mais ça vaut le coup. J'ai un warrior Nord pour l'instant, j'hésite à faire un mage pour ma 2ème partie. Vous jouez quoi vous ?</p>
+        <p>Le seul truc relou c'est les bugs... j'ai eu un cheval qui volait et un dragon coincé dans le sol lol. Mais bon c'est du Bethesda, on s'y attendait. On aime quand même ❤️</p>
+      </div>
+      <div class="post-footer">
+        <a href="javascript:void(0)" class="comments-link">💬 89 commentaires</a>
+        <span class="post-tags">🏷️ <a href="javascript:void(0)">skyrim</a> <a href="javascript:void(0)">RPG</a> <a href="javascript:void(0)">gaming</a> <a href="javascript:void(0)">bethesda</a></span>
+        <a href="javascript:void(0)" class="read-more">Lire la suite »</a>
+      </div>
+    </div>
+
+    <!-- POST 4 -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-title"><a href="javascript:void(0)">Adele - 21 : le meilleur album de l'année ? Mon avis</a></div>
+          <div><span class="post-category-badge" style="background:linear-gradient(180deg,#9922cc,#6611aa)">🎵 Musique</span></div>
+        </div>
+        <div class="post-meta">
+          Posté par <span class="author">Kévin_93</span><br>
+          📅 10 fév. 2011<br>
+          🕐 21:05
+        </div>
+      </div>
+      <div class="post-body">
+        <p>Bon je sais que c'est pas trop mon style d'habitude mais ma cousine m'a forcé à écouter le nouvel album d'Adele et... je vais avouer un truc. C'est vraiment bien. "Rolling in the Deep" depuis 3 jours en boucle dans ma tête, je peux plus m'arrêter 😅</p>
+        <p>Franchement pour ceux qui ont un peu de mal avec la variété anglaise je vous conseille de tester, c'est vraiment différent de ce qu'on entend partout. Sa voix c'est quelque chose.</p>
+      </div>
+      <div class="post-footer">
+        <a href="javascript:void(0)" class="comments-link">💬 18 commentaires</a>
+        <span class="post-tags">🏷️ <a href="javascript:void(0)">musique</a> <a href="javascript:void(0)">adele</a> <a href="javascript:void(0)">album</a></span>
+        <a href="javascript:void(0)" class="read-more">Lire la suite »</a>
+      </div>
+    </div>
+
+    <!-- CHATBOX -->
+    <div id="chatbox-section">
+      <div class="post-header">
+        <h2>💬 Le chat du blog — Parle avec Claude !</h2>
+        <p>Tu peux poser des questions, discuter, délirer... Les messages sont sauvegardés même si tu rafraîchis 😉</p>
+      </div>
+      <div id="chat-messages"></div>
+      <div class="typing-indicator" id="typing">
+        <div class="chat-avatar claude-avatar">🤖</div>
+        <div style="display:flex;gap:4px;padding:10px 12px;background:#fff8e8;border:1px solid #f0cc88;border-radius:8px;">
+          <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
+        </div>
+      </div>
+      <div id="chat-form">
+        <div class="chat-prenom-row">
+          <label>Ton pseudo :</label>
+          <input type="text" id="chat-pseudo" placeholder="Pseudo" maxlength="20" />
+          <span style="margin-left:auto;">
+            <button id="chat-clear">🗑️ Effacer tout l'historique</button>
+          </span>
+        </div>
+        <div class="chat-input-row">
+          <textarea id="chat-input" placeholder="Écris ton message ici... appuie sur Entrée pour envoyer !"></textarea>
+          <button id="chat-send">Envoyer ►</button>
+        </div>
+        <div class="chat-hint">💡 Claude (l'IA du blog) te répondra automatiquement !</div>
+      </div>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination">
+      « Précédent &nbsp;
+      <a class="page-btn current" href="javascript:void(0)">1</a>
+      <a class="page-btn" href="javascript:void(0)">2</a>
+      <a class="page-btn" href="javascript:void(0)">3</a>
+      <a class="page-btn" href="javascript:void(0)">4</a>
+      <a class="page-btn" href="javascript:void(0)">5</a>
+      &nbsp; … &nbsp;
+      <a class="page-btn" href="javascript:void(0)">12</a>
+      &nbsp; Suivant »
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+
+    <!-- À PROPOS -->
+    <div class="widget">
+      <div class="widget-title">👤 À propos</div>
+      <div class="widget-body">
+        <div class="about-avatar">😎</div>
+        <div class="about-text">
+          Salut moi c'est <strong>Kévin</strong>, j'ai 19 ans, j'habite en région parisienne. Je parle de ce qui me passe par la tête : jeux vidéo, ciné, bouffe, musique... Bonne lecture !!
+          <br><br>
+          <a href="javascript:void(0)">📧 Me contacter</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPTEUR -->
+    <div class="widget">
+      <div class="widget-title">👁️ Visiteurs</div>
+      <div class="widget-body">
+        <div class="visitor-counter" id="counter">048312</div>
+        <div class="counter-label">visiteurs depuis le 12/09/2009</div>
+      </div>
+    </div>
+
+    <!-- CATÉGORIES -->
+    <div class="widget">
+      <div class="widget-title">📂 Catégories</div>
+      <div class="widget-body">
+        <ul class="cat-list">
+          <li><a href="javascript:void(0)">🎮 Gaming</a><span class="cat-count">34</span></li>
+          <li><a href="javascript:void(0)">🎬 Cinéma</a><span class="cat-count">28</span></li>
+          <li><a href="javascript:void(0)">🍕 Bouffe</a><span class="cat-count">21</span></li>
+          <li><a href="javascript:void(0)">🎵 Musique</a><span class="cat-count">19</span></li>
+          <li><a href="javascript:void(0)">😂 Humour</a><span class="cat-count">15</span></li>
+          <li><a href="javascript:void(0)">💬 Humeur du jour</a><span class="cat-count">42</span></li>
+          <li><a href="javascript:void(0)">📷 Photos</a><span class="cat-count">11</span></li>
+          <li><a href="javascript:void(0)">❓ Divers</a><span class="cat-count">8</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ARTICLES RÉCENTS -->
+    <div class="widget">
+      <div class="widget-title">📰 Articles récents</div>
+      <div class="widget-body">
+        <ul class="recent-list">
+          <li><a href="javascript:void(0)">Mon top 10 des films de 2011</a><span class="rdate">14 mars 2011</span></li>
+          <li><a href="javascript:void(0)">J'ai testé le nouveau McDo</a><span class="rdate">2 mars 2011</span></li>
+          <li><a href="javascript:void(0)">Pourquoi je kiffe Skyrim</a><span class="rdate">19 nov. 2011</span></li>
+          <li><a href="javascript:void(0)">Adele - 21 : mon avis</a><span class="rdate">10 fév. 2011</span></li>
+          <li><a href="javascript:void(0)">Ma soirée du Nouvel An en photos</a><span class="rdate">3 jan. 2011</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- NUAGE DE TAGS -->
+    <div class="widget">
+      <div class="widget-title">🏷️ Tags</div>
+      <div class="widget-body">
+        <div class="tag-cloud">
+          <a href="javascript:void(0)" class="big">gaming</a>
+          <a href="javascript:void(0)">cinéma</a>
+          <a href="javascript:void(0)" class="big">skyrim</a>
+          <a href="javascript:void(0)" class="medium">musique</a>
+          <a href="javascript:void(0)">mcdo</a>
+          <a href="javascript:void(0)" class="medium">films</a>
+          <a href="javascript:void(0)">humour</a>
+          <a href="javascript:void(0)" class="big">top10</a>
+          <a href="javascript:void(0)">photos</a>
+          <a href="javascript:void(0)" class="medium">bouffe</a>
+          <a href="javascript:void(0)">sortie</a>
+          <a href="javascript:void(0)">PS3</a>
+          <a href="javascript:void(0)" class="medium">série</a>
+          <a href="javascript:void(0)">vacances</a>
+          <a href="javascript:void(0)">fail</a>
+          <a href="javascript:void(0)" class="big">lol</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARCHIVES -->
+    <div class="widget">
+      <div class="widget-title">📅 Archives</div>
+      <div class="widget-body">
+        <ul class="archives-list">
+          <li><a href="javascript:void(0)">Novembre 2011</a><span class="cat-count">7</span></li>
+          <li><a href="javascript:void(0)">Octobre 2011</a><span class="cat-count">5</span></li>
+          <li><a href="javascript:void(0)">Septembre 2011</a><span class="cat-count">9</span></li>
+          <li><a href="javascript:void(0)">Août 2011</a><span class="cat-count">3</span></li>
+          <li><a href="javascript:void(0)">Juillet 2011</a><span class="cat-count">6</span></li>
+          <li><a href="javascript:void(0)">Juin 2011</a><span class="cat-count">8</span></li>
+          <li><a href="javascript:void(0)">… tout voir</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="widget">
+      <div class="widget-title">📊 Stats du blog</div>
+      <div class="widget-body stats-box">
+        <div class="stat-row"><span>Articles</span><span class="stat-num">178</span></div>
+        <div class="stat-row"><span>Commentaires</span><span class="stat-num">1 247</span></div>
+        <div class="stat-row"><span>Abonnés RSS</span><span class="stat-num">83</span></div>
+        <div class="stat-row"><span>En ligne maintenant</span><span class="stat-num">3</span></div>
+      </div>
+    </div>
+
+    <!-- PUB -->
+    <div class="widget">
+      <div class="widget-title">📢 Pub</div>
+      <div class="widget-body">
+        <div class="pub-banner">
+          <strong>🎮 Bon plan !</strong>
+          Skyrim -20% sur<br>Amazon ce week-end<br>
+          <a href="javascript:void(0)" style="color:#cc4400;font-weight:bold;font-size:12px;">→ Voir l'offre</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /wrapper -->
+
+<!-- FOOTER -->
+<div id="footer">
+  <div class="footer-links">
+    <a href="javascript:void(0)">Accueil</a>
+    <a href="javascript:void(0)">À propos</a>
+    <a href="javascript:void(0)">Contact</a>
+    <a href="javascript:void(0)">Plan du site</a>
+    <a href="javascript:void(0)">Flux RSS</a>
+    <a href="javascript:void(0)">Mentions légales</a>
+  </div>
+  <p>© 2009–2011 MonBlog.fr — Tous droits réservés | Propulsé par <a href="javascript:void(0)">WordPress</a> | Thème par <a href="javascript:void(0)">Kévin</a></p>
+  <p style="margin-top:5px;color:#666;">Design optimisé pour Firefox 3.6+ et Internet Explorer 8+ · Résolution 1024×768 recommandée</p>
+</div>
+
+<script>
+  // ── COMPTEUR ──
+  let count = 48312;
+  setInterval(() => {
+    count++;
+    document.getElementById('counter').textContent = String(count).padStart(6, '0');
+  }, 4700);
+
+  // ── CHAT ──
+  const STORAGE_KEY = 'monblog_chat_v1';
+  const PSEUDO_KEY  = 'monblog_pseudo';
+
+  const messagesEl = document.getElementById('chat-messages');
+  const inputEl    = document.getElementById('chat-input');
+  const pseudoEl   = document.getElementById('chat-pseudo');
+  const sendBtn    = document.getElementById('chat-send');
+  const clearBtn   = document.getElementById('chat-clear');
+  const typingEl   = document.getElementById('typing');
+
+  // Charger le pseudo sauvegardé
+  pseudoEl.value = localStorage.getItem(PSEUDO_KEY) || '';
+  pseudoEl.addEventListener('change', () => localStorage.setItem(PSEUDO_KEY, pseudoEl.value.trim()));
+
+  // Charger l'historique
+  function loadHistory() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+    catch { return []; }
+  }
+  function saveHistory(hist) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(hist));
+  }
+
+  function formatTime(ts) {
+    const d = new Date(ts);
+    return d.toLocaleDateString('fr-FR', {day:'2-digit',month:'2-digit'}) + ' ' +
+           d.toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
+  }
+
+  function renderMessages() {
+    const hist = loadHistory();
+    messagesEl.innerHTML = '';
+    hist.forEach(m => appendBubble(m, false));
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function appendBubble(msg, scroll = true) {
+    const isMe     = msg.role === 'user';
+    const isClaude = msg.role === 'claude';
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-msg ' + (isMe ? 'me' : isClaude ? 'claude' : 'other');
+
+    const avatar = document.createElement('div');
+    avatar.className = 'chat-avatar ' + (isClaude ? 'claude-avatar' : 'user-avatar');
+    avatar.textContent = isClaude ? '🤖' : '😎';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.innerHTML = `<div class="chat-name">${isClaude ? 'Claude (IA du blog)' : escHtml(msg.pseudo || 'Anonyme')}</div>
+      <div>${escHtml(msg.text)}</div>
+      <div class="chat-time">${formatTime(msg.ts)}</div>`;
+
+    wrap.appendChild(avatar);
+    wrap.appendChild(bubble);
+    messagesEl.appendChild(wrap);
+    if (scroll) messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+  }
+
+  async function sendMessage() {
+    const text   = inputEl.value.trim();
+    const pseudo = pseudoEl.value.trim() || 'Anonyme';
+    if (!text) return;
+
+    localStorage.setItem(PSEUDO_KEY, pseudo);
+    inputEl.value = '';
+    sendBtn.disabled = true;
+
+    const hist = loadHistory();
+    const userMsg = { role: 'user', pseudo, text, ts: Date.now() };
+    hist.push(userMsg);
+    saveHistory(hist);
+    appendBubble(userMsg);
+
+    // Afficher typing
+    typingEl.classList.add('visible');
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+
+    // Construire l'historique pour l'API (10 derniers messages)
+    const recent = hist.slice(-10);
+    const apiMessages = recent.map(m => ({
+      role: m.role === 'user' ? 'user' : 'assistant',
+      content: m.role === 'user' ? `[${m.pseudo}]: ${m.text}` : m.text
+    }));
+
+    try {
+      const resp = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: `Tu es Claude, le personnage du blog MonBlog.fr, un blog style années 2010 tenu par Kévin_93. Tu réponds de façon décontractée, sympas, en français familier comme on écrit sur les vieux blogs — tu peux utiliser "lol", "xD", "mdr", des abréviations, mais reste naturel. Tu parles de jeux vidéo, ciné, bouffe, musique. Réponds toujours en moins de 3-4 phrases courtes. N'utilise pas de markdown.`,
+          messages: apiMessages
+        })
+      });
+      const data = await resp.json();
+      const replyText = data.content?.[0]?.text || "Oups j'ai eu un bug lol ! Réessaie 😅";
+
+      typingEl.classList.remove('visible');
+      const claudeMsg = { role: 'claude', pseudo: 'Claude', text: replyText, ts: Date.now() };
+      const h2 = loadHistory();
+      h2.push(claudeMsg);
+      saveHistory(h2);
+      appendBubble(claudeMsg);
+    } catch(e) {
+      typingEl.classList.remove('visible');
+      const errMsg = { role: 'claude', pseudo: 'Claude', text: "Oups problème de connexion ! Réessaie dans un moment 😅", ts: Date.now() };
+      const h2 = loadHistory();
+      h2.push(errMsg);
+      saveHistory(h2);
+      appendBubble(errMsg);
+    }
+
+    sendBtn.disabled = false;
+    inputEl.focus();
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  inputEl.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+  clearBtn.addEventListener('click', () => {
+    if (confirm('Supprimer tout l\'historique du chat ?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      renderMessages();
+    }
+  });
+
+  renderMessages();
+</script>
+</body>
+</html>
