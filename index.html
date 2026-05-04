@@ -42,6 +42,7 @@ a:hover { text-decoration: underline; color: #003399; }
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.6), 0 0 20px rgba(100,160,255,0.4);
   letter-spacing: -0.5px;
+  cursor: pointer;
 }
 .site-title span { color: #ffdd44; }
 .site-tagline {
@@ -78,6 +79,7 @@ a:hover { text-decoration: underline; color: #003399; }
   border-right: 1px solid rgba(255,255,255,0.15);
   background: transparent;
   transition: background 0.1s;
+  cursor: pointer;
 }
 .nav-item:hover {
   background: linear-gradient(180deg, #4a80c8 0%, #2a5fa8 100%);
@@ -186,18 +188,6 @@ a:hover { text-decoration: underline; color: #003399; }
   color: #444;
 }
 .post-body p { margin-bottom: 10px; }
-.post-body .post-img {
-  float: right;
-  margin: 0 0 10px 14px;
-  border: 3px solid #ddd;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-  border-radius: 2px;
-  width: 180px; height: 110px;
-  background: linear-gradient(135deg, #ddeeff, #bbccee);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; color: #778;
-  font-style: italic;
-}
 .post-footer {
   background: linear-gradient(180deg, #f0f0f0, #e4e4e4);
   border-top: 1px solid #ccc;
@@ -220,24 +210,59 @@ a:hover { text-decoration: underline; color: #003399; }
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
   margin-left: auto;
   text-decoration: none !important;
+  cursor: pointer;
 }
 .read-more:hover { background: linear-gradient(180deg, #5a90d8, #3a6fb8); }
 
-/* COMMENTAIRES BADGE */
-.comments-link {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='10' rx='2' fill='%23888' /%3E%3Cpolygon points='4,11 4,15 8,11' fill='%23888'/%3E%3C/svg%3E") no-repeat left center;
-  padding-left: 20px;
+/* FORMULAIRE DE CRÉATION */
+#admin-form {
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
 }
-
-/* TAGS */
-.post-tags { font-size: 10px; color: #888; }
-.post-tags a {
-  background: #eef;
-  border: 1px solid #ccf;
+#admin-form h3 {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  color: #1a3f7a;
+  margin-bottom: 10px;
+}
+#admin-form input, #admin-form textarea {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 8px;
+  border: 1px solid #bbb;
   border-radius: 2px;
-  padding: 1px 5px;
-  color: #339;
+  font-family: inherit;
+  font-size: 12px;
+}
+#admin-form textarea { resize: vertical; height: 80px; }
+.form-group-inline { display: flex; gap: 10px; margin-bottom: 8px; }
+.form-group-inline > div { flex: 1; }
+.btn-submit {
+  background: linear-gradient(180deg, #4a80c8, #2a5fa8);
+  color: #fff;
+  border: 1px solid #1a3f7a;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.btn-submit:hover { background: linear-gradient(180deg, #5a90d8, #3a6fb8); }
+.btn-delete {
+  background: linear-gradient(180deg, #dd3333, #aa1111);
+  color: #fff;
+  border: 1px solid #660000;
+  padding: 3px 8px;
   font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 2px;
+  margin-top: 4px;
 }
 
 /* PAGINATION */
@@ -252,6 +277,7 @@ a:hover { text-decoration: underline; color: #003399; }
   box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
   font-size: 12px;
   justify-content: center;
+  margin-bottom: 16px;
 }
 .page-btn {
   display: inline-block;
@@ -315,6 +341,7 @@ a:hover { text-decoration: underline; color: #003399; }
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
+  cursor: pointer;
 }
 .cat-list li:last-child { border-bottom: none; }
 .cat-list a { color: #0066cc; }
@@ -335,7 +362,7 @@ a:hover { text-decoration: underline; color: #003399; }
   font-size: 11px;
 }
 .recent-list li:last-child { border-bottom: none; }
-.recent-list a { color: #0066cc; line-height: 1.4; display: block; }
+.recent-list a { color: #0066cc; line-height: 1.4; display: block; cursor: pointer; }
 .recent-list .rdate { color: #999; font-size: 10px; }
 
 /* NUAGE DE TAGS */
@@ -352,18 +379,6 @@ a:hover { text-decoration: underline; color: #003399; }
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 .tag-cloud a:hover { background: linear-gradient(180deg, #c8d8f0, #b0c8e8); text-decoration: none; }
-.tag-cloud .big { font-size: 14px; font-weight: bold; }
-.tag-cloud .medium { font-size: 12px; }
-
-/* ARCHIVES */
-.archives-list { list-style: none; }
-.archives-list li {
-  padding: 4px 0;
-  border-bottom: 1px dotted #ddd;
-  font-size: 11px;
-  display: flex; justify-content: space-between;
-}
-.archives-list li:last-child { border-bottom: none; }
 
 /* STATS */
 .stats-box { font-size: 11px; }
@@ -413,7 +428,7 @@ a:hover { text-decoration: underline; color: #003399; }
   margin-top: 10px;
   box-shadow: 0 -2px 6px rgba(0,0,0,0.4);
 }
-#footer a { color: #6699cc; }
+#footer a { color: #6699cc; cursor: pointer; }
 .footer-links { margin-bottom: 6px; }
 .footer-links a { margin: 0 8px; }
 
@@ -442,7 +457,7 @@ a:hover { text-decoration: underline; color: #003399; }
 }
 #chat-messages {
   padding: 10px 14px;
-  max-height: 380px;
+  max-height: 200px;
   overflow-y: auto;
   background: #fafafa;
   border-bottom: 1px solid #eee;
@@ -490,27 +505,13 @@ a:hover { text-decoration: underline; color: #003399; }
   background: linear-gradient(180deg, #fff, #f4f4f4);
   border-color: #ddd;
 }
-.chat-msg.claude .chat-bubble {
-  background: linear-gradient(180deg, #fff8e8, #fef0cc);
-  border-color: #f0cc88;
-}
 .chat-name {
   font-size: 10px; font-weight: bold; color: #555;
   margin-bottom: 2px;
 }
 .chat-msg.me .chat-name { text-align: right; color: #2255aa; }
-.chat-msg.claude .chat-name { color: #996600; }
 .chat-time { font-size: 9px; color: #bbb; margin-top: 3px; }
 .chat-msg.me .chat-time { text-align: right; }
-.typing-indicator { display: none; align-items: center; gap: 6px; padding: 4px 0; }
-.typing-indicator.visible { display: flex; }
-.typing-dot {
-  width: 7px; height: 7px; background: #bbb; border-radius: 50%;
-  animation: bounce 1s infinite;
-}
-.typing-dot:nth-child(2) { animation-delay: .2s; }
-.typing-dot:nth-child(3) { animation-delay: .4s; }
-@keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
 #chat-form {
   padding: 10px 14px;
   background: linear-gradient(180deg, #f0f0f0, #e4e4e4);
@@ -533,7 +534,7 @@ a:hover { text-decoration: underline; color: #003399; }
   padding: 6px 8px; font-size: 12px;
   font-family: Verdana, sans-serif;
   background: #fff; box-shadow: inset 1px 1px 3px rgba(0,0,0,0.15);
-  resize: none; height: 52px;
+  resize: none; height: 38px;
 }
 #chat-send {
   background: linear-gradient(180deg, #4a80c8, #2a5fa8);
@@ -545,7 +546,6 @@ a:hover { text-decoration: underline; color: #003399; }
 }
 #chat-send:hover { background: linear-gradient(180deg, #5a90d8, #3a6fb8); }
 #chat-send:active { transform: translateY(1px); }
-.chat-hint { font-size: 10px; color: #888; font-style: italic; }
 #chat-clear {
   background: none; border: none; font-size: 10px;
   color: #cc3300; cursor: pointer; text-decoration: underline;
@@ -563,11 +563,10 @@ a:hover { text-decoration: underline; color: #003399; }
 </head>
 <body>
 
-<!-- HEADER -->
 <div id="header">
   <div class="header-top">
     <div>
-      <div class="site-title">Mon<span>Blog</span>.fr</div>
+      <div class="site-title" onclick="filtrerParCategorie('Accueil')">Mon<span>Blog</span>.fr</div>
       <div class="site-tagline">✏️ Le blog de tout et n'importe quoi depuis 2009</div>
     </div>
     <div class="header-date">
@@ -577,189 +576,103 @@ a:hover { text-decoration: underline; color: #003399; }
   </div>
   <div class="divider"></div>
   <div id="navbar">
-    <a class="nav-item active" href="javascript:void(0)">🏠 Accueil</a>
-    <a class="nav-item" href="javascript:void(0)">💬 Actualité</a>
-    <a class="nav-item" href="javascript:void(0)">🎮 Gaming</a>
-    <a class="nav-item" href="javascript:void(0)">🎵 Musique</a>
-    <a class="nav-item" href="javascript:void(0)">🍕 Bouffe</a>
-    <a class="nav-item" href="javascript:void(0)">😂 Humour</a>
-    <a class="nav-item" href="javascript:void(0)">📷 Photos</a>
-    <a class="nav-item" href="javascript:void(0)">✉️ Contact</a>
+    <a class="nav-item active" onclick="filtrerParCategorie('Accueil')">🏠 Accueil</a>
+    <a class="nav-item" onclick="filtrerParCategorie('Actualité')">💬 Actualité</a>
+    <a class="nav-item" onclick="filtrerParCategorie('Gaming')">🎮 Gaming</a>
+    <a class="nav-item" onclick="filtrerParCategorie('Musique')">🎵 Musique</a>
+    <a class="nav-item" onclick="filtrerParCategorie('Bouffe')">🍕 Bouffe</a>
+    <a class="nav-item" onclick="filtrerParCategorie('Humour')">😂 Humour</a>
+    <a class="nav-item" onclick="filtrerParCategorie('Photos')">📷 Photos</a>
+    <a class="nav-item" onclick="javascript:alert('Page Contact en construction !')">✉️ Contact</a>
     <div class="nav-search">
-      <input type="text" placeholder="Rechercher..." />
-      <button>Go</button>
+      <input type="text" id="recherche" placeholder="Rechercher..." oninput="rechercherArticle()" />
+      <button onclick="rechercherArticle()">Go</button>
     </div>
   </div>
 </div>
 
-<!-- WRAPPER -->
 <div id="wrapper">
 
-  <!-- CONTENU PRINCIPAL -->
   <div id="content">
 
-    <!-- POST 1 -->
-    <div class="post">
-      <div class="post-header">
+    <div id="admin-form">
+      <h3>✍️ Ajouter un nouvel article</h3>
+      <div class="form-group-inline">
         <div>
-          <div class="post-title"><a href="javascript:void(0)">Mon top 10 des films de 2011 — vous allez pas être déçus !!</a></div>
-          <div><span class="post-category-badge">🎬 Cinéma</span></div>
+          <label>Titre :</label>
+          <input type="text" id="art-titre" placeholder="Titre de l'article">
         </div>
-        <div class="post-meta">
-          Posté par <span class="author">Kévin_93</span><br>
-          📅 14 mars 2011<br>
-          🕐 22:47
+        <div>
+          <label>Catégorie :</label>
+          <select id="art-cat" style="width:100%; padding:6px; border:1px solid #bbb; border-radius:2px; font-size:12px;">
+            <option value="Actualité">💬 Actualité</option>
+            <option value="Gaming">🎮 Gaming</option>
+            <option value="Musique">🎵 Musique</option>
+            <option value="Bouffe">🍕 Bouffe</option>
+            <option value="Humour">😂 Humour</option>
+            <option value="Photos">📷 Photos</option>
+          </select>
         </div>
       </div>
-      <div class="post-body">
-        <div class="post-img">[ image du film ]</div>
-        <p>Salut tout le monde !! 😀 Alors voilà j'ai enfin pris le temps de faire mon top films de cette année et franchement y'a eu du lourd. Je sais pas vous mais moi le cinéma en ce moment c'est vraiment trop fort.</p>
-        <p>Bon je vais pas tout spoiler ici mais en gros si vous avez pas vu <strong>Inception</strong> vous vivez pas. Seriously. Mon pote Julien y'est allé 3 fois au ciné tellement c'est ouf. Et la fin on en parle même pas, j'arrive encore pas à dormir 😱</p>
-        <p>Sinon j'ai aussi adoré Fast Five, ouais je sais c'est bourrin mais assumez les gens ! Des fois on a juste envie de voir des bagnoles exploser...</p>
+      <label>Contenu :</label>
+      <textarea id="art-contenu" placeholder="Écrivez le contenu de votre article ici..."></textarea>
+      <div class="form-group-inline">
+        <div>
+          <label>Votre pseudo :</label>
+          <input type="text" id="art-auteur" placeholder="Pseudo">
+        </div>
+        <div>
+          <label>Tags :</label>
+          <input type="text" id="art-tags" placeholder="ex: jeux cinéma musique">
+        </div>
       </div>
-      <div class="post-footer">
-        <a href="javascript:void(0)" class="comments-link">💬 47 commentaires</a>
-        <span class="post-tags">🏷️ <a href="javascript:void(0)">cinéma</a> <a href="javascript:void(0)">films</a> <a href="javascript:void(0)">top10</a> <a href="javascript:void(0)">inception</a></span>
-        <a href="javascript:void(0)" class="read-more">Lire la suite »</a>
-      </div>
+      <button class="btn-submit" onclick="ajouterArticle()">Publier l'article</button>
     </div>
 
-    <!-- POST 2 -->
-    <div class="post">
-      <div class="post-header">
-        <div>
-          <div class="post-title"><a href="javascript:void(0)">J'ai testé le nouveau McDo près de chez moi — mon avis complet</a></div>
-          <div><span class="post-category-badge" style="background:linear-gradient(180deg,#ee6600,#cc4400)">🍔 Bouffe</span></div>
-        </div>
-        <div class="post-meta">
-          Posté par <span class="author">Kévin_93</span><br>
-          📅 2 mars 2011<br>
-          🕐 19:12
-        </div>
-      </div>
-      <div class="post-body">
-        <p>Alors comme promis dans mon dernier post j'y suis allé tester le McDo qui vient d'ouvrir sur la nationale. VERDICT : c'est... un McDo quoi 😂 nan sérieusement c'est propre, le service est rapide, j'ai pris un Big Mac + McFlurry Oréo et j'ai pas été déçu.</p>
-        <p>Par contre le WiFi ils l'ont pas encore activé, le mec de la caisse savait pas quand ça serait dispo. Franchement en 2011 un McDo sans WiFi c'est un peu la honte non ? Ma génération ça peut pas manger sans regarder son téléphone 😅</p>
-        <p>Bref si vous passez par là n'hésitez pas, et dites moi en commentaire votre commande préférée !</p>
-      </div>
-      <div class="post-footer">
-        <a href="javascript:void(0)" class="comments-link">💬 23 commentaires</a>
-        <span class="post-tags">🏷️ <a href="javascript:void(0)">mcdo</a> <a href="javascript:void(0)">bouffe</a> <a href="javascript:void(0)">test</a></span>
-        <a href="javascript:void(0)" class="read-more">Lire la suite »</a>
-      </div>
-    </div>
+    <div id="articles-container"></div>
 
-    <!-- POST 3 -->
-    <div class="post">
-      <div class="post-header">
-        <div>
-          <div class="post-title"><a href="javascript:void(0)">Pourquoi je kiffe Skyrim et pourquoi vous devriez aussi</a></div>
-          <div><span class="post-category-badge" style="background:linear-gradient(180deg,#448800,#226600)">🎮 Gaming</span></div>
-        </div>
-        <div class="post-meta">
-          Posté par <span class="author">Kévin_93</span><br>
-          📅 19 nov. 2011<br>
-          🕐 14:33
-        </div>
-      </div>
-      <div class="post-body">
-        <div class="post-img" style="background:linear-gradient(135deg,#334422,#556633);">[ screenshot Skyrim ]</div>
-        <p><strong>SKYRIM EST SORTI AUJOURD'HUI ET JE SUIS MORT.</strong> 🔥🔥🔥 J'ai pris ma journée (chut dites rien à ma mère), j'ai fait 8h de jeu non-stop et franchement les mecs Bethesda ils se sont surpassés.</p>
-        <p>Déjà le truc c'est que les graphismes sont dingues. Ma CG elle chauffe un peu mais ça vaut le coup. J'ai un warrior Nord pour l'instant, j'hésite à faire un mage pour ma 2ème partie. Vous jouez quoi vous ?</p>
-        <p>Le seul truc relou c'est les bugs... j'ai eu un cheval qui volait et un dragon coincé dans le sol lol. Mais bon c'est du Bethesda, on s'y attendait. On aime quand même ❤️</p>
-      </div>
-      <div class="post-footer">
-        <a href="javascript:void(0)" class="comments-link">💬 89 commentaires</a>
-        <span class="post-tags">🏷️ <a href="javascript:void(0)">skyrim</a> <a href="javascript:void(0)">RPG</a> <a href="javascript:void(0)">gaming</a> <a href="javascript:void(0)">bethesda</a></span>
-        <a href="javascript:void(0)" class="read-more">Lire la suite »</a>
-      </div>
-    </div>
-
-    <!-- POST 4 -->
-    <div class="post">
-      <div class="post-header">
-        <div>
-          <div class="post-title"><a href="javascript:void(0)">Adele - 21 : le meilleur album de l'année ? Mon avis</a></div>
-          <div><span class="post-category-badge" style="background:linear-gradient(180deg,#9922cc,#6611aa)">🎵 Musique</span></div>
-        </div>
-        <div class="post-meta">
-          Posté par <span class="author">Kévin_93</span><br>
-          📅 10 fév. 2011<br>
-          🕐 21:05
-        </div>
-      </div>
-      <div class="post-body">
-        <p>Bon je sais que c'est pas trop mon style d'habitude mais ma cousine m'a forcé à écouter le nouvel album d'Adele et... je vais avouer un truc. C'est vraiment bien. "Rolling in the Deep" depuis 3 jours en boucle dans ma tête, je peux plus m'arrêter 😅</p>
-        <p>Franchement pour ceux qui ont un peu de mal avec la variété anglaise je vous conseille de tester, c'est vraiment différent de ce qu'on entend partout. Sa voix c'est quelque chose.</p>
-      </div>
-      <div class="post-footer">
-        <a href="javascript:void(0)" class="comments-link">💬 18 commentaires</a>
-        <span class="post-tags">🏷️ <a href="javascript:void(0)">musique</a> <a href="javascript:void(0)">adele</a> <a href="javascript:void(0)">album</a></span>
-        <a href="javascript:void(0)" class="read-more">Lire la suite »</a>
-      </div>
-    </div>
-
-    <!-- CHATBOX -->
     <div id="chatbox-section">
       <div class="post-header">
-        <h2>💬 Le chat du blog — Parle avec Claude !</h2>
-        <p>Tu peux poser des questions, discuter, délirer... Les messages sont sauvegardés même si tu rafraîchis 😉</p>
+        <h2>💬 Le chat du blog</h2>
+        <p>Discute avec les autres lecteurs ou avec l'IA !</p>
       </div>
       <div id="chat-messages"></div>
-      <div class="typing-indicator" id="typing">
-        <div class="chat-avatar claude-avatar">🤖</div>
-        <div style="display:flex;gap:4px;padding:10px 12px;background:#fff8e8;border:1px solid #f0cc88;border-radius:8px;">
-          <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
-        </div>
-      </div>
       <div id="chat-form">
         <div class="chat-prenom-row">
           <label>Ton pseudo :</label>
-          <input type="text" id="chat-pseudo" placeholder="Pseudo" maxlength="20" />
+          <input type="text" id="chat-pseudo" value="Visiteur" maxlength="20" />
           <span style="margin-left:auto;">
-            <button id="chat-clear">🗑️ Effacer tout l'historique</button>
+            <button id="chat-clear">🗑️ Effacer</button>
           </span>
         </div>
         <div class="chat-input-row">
-          <textarea id="chat-input" placeholder="Écris ton message ici... appuie sur Entrée pour envoyer !"></textarea>
+          <textarea id="chat-input" placeholder="Écris ton message ici..."></textarea>
           <button id="chat-send">Envoyer ►</button>
         </div>
-        <div class="chat-hint">💡 Claude (l'IA du blog) te répondra automatiquement !</div>
       </div>
     </div>
 
-    <!-- PAGINATION -->
     <div class="pagination">
       « Précédent &nbsp;
-      <a class="page-btn current" href="javascript:void(0)">1</a>
-      <a class="page-btn" href="javascript:void(0)">2</a>
-      <a class="page-btn" href="javascript:void(0)">3</a>
-      <a class="page-btn" href="javascript:void(0)">4</a>
-      <a class="page-btn" href="javascript:void(0)">5</a>
-      &nbsp; … &nbsp;
-      <a class="page-btn" href="javascript:void(0)">12</a>
+      <a class="page-btn current">1</a>
+      <a class="page-btn">2</a>
       &nbsp; Suivant »
     </div>
 
-  </div><!-- /content -->
+  </div><div id="sidebar">
 
-  <!-- SIDEBAR -->
-  <div id="sidebar">
-
-    <!-- À PROPOS -->
     <div class="widget">
       <div class="widget-title">👤 À propos</div>
       <div class="widget-body">
         <div class="about-avatar">😎</div>
         <div class="about-text">
-          Salut moi c'est <strong>Kévin</strong>, j'ai 19 ans, j'habite en région parisienne. Je parle de ce qui me passe par la tête : jeux vidéo, ciné, bouffe, musique... Bonne lecture !!
+          Salut moi c'est Kévin, et vous pouvez maintenant gérer votre propre blog !
           <br><br>
-          <a href="javascript:void(0)">📧 Me contacter</a>
+          <a href="javascript:alert('En construction !')">📧 Me contacter</a>
         </div>
       </div>
     </div>
 
-    <!-- COMPTEUR -->
     <div class="widget">
       <div class="widget-title">👁️ Visiteurs</div>
       <div class="widget-body">
@@ -768,261 +681,273 @@ a:hover { text-decoration: underline; color: #003399; }
       </div>
     </div>
 
-    <!-- CATÉGORIES -->
     <div class="widget">
       <div class="widget-title">📂 Catégories</div>
       <div class="widget-body">
         <ul class="cat-list">
-          <li><a href="javascript:void(0)">🎮 Gaming</a><span class="cat-count">34</span></li>
-          <li><a href="javascript:void(0)">🎬 Cinéma</a><span class="cat-count">28</span></li>
-          <li><a href="javascript:void(0)">🍕 Bouffe</a><span class="cat-count">21</span></li>
-          <li><a href="javascript:void(0)">🎵 Musique</a><span class="cat-count">19</span></li>
-          <li><a href="javascript:void(0)">😂 Humour</a><span class="cat-count">15</span></li>
-          <li><a href="javascript:void(0)">💬 Humeur du jour</a><span class="cat-count">42</span></li>
-          <li><a href="javascript:void(0)">📷 Photos</a><span class="cat-count">11</span></li>
-          <li><a href="javascript:void(0)">❓ Divers</a><span class="cat-count">8</span></li>
+          <li onclick="filtrerParCategorie('Actualité')"><span>💬 Actualité</span><span class="cat-count">28</span></li>
+          <li onclick="filtrerParCategorie('Gaming')"><span>🎮 Gaming</span><span class="cat-count">34</span></li>
+          <li onclick="filtrerParCategorie('Musique')"><span>🎵 Musique</span><span class="cat-count">19</span></li>
+          <li onclick="filtrerParCategorie('Bouffe')"><span>🍕 Bouffe</span><span class="cat-count">21</span></li>
+          <li onclick="filtrerParCategorie('Humour')"><span>😂 Humour</span><span class="cat-count">15</span></li>
+          <li onclick="filtrerParCategorie('Photos')"><span>📷 Photos</span><span class="cat-count">11</span></li>
         </ul>
       </div>
     </div>
 
-    <!-- ARTICLES RÉCENTS -->
     <div class="widget">
       <div class="widget-title">📰 Articles récents</div>
       <div class="widget-body">
-        <ul class="recent-list">
-          <li><a href="javascript:void(0)">Mon top 10 des films de 2011</a><span class="rdate">14 mars 2011</span></li>
-          <li><a href="javascript:void(0)">J'ai testé le nouveau McDo</a><span class="rdate">2 mars 2011</span></li>
-          <li><a href="javascript:void(0)">Pourquoi je kiffe Skyrim</a><span class="rdate">19 nov. 2011</span></li>
-          <li><a href="javascript:void(0)">Adele - 21 : mon avis</a><span class="rdate">10 fév. 2011</span></li>
-          <li><a href="javascript:void(0)">Ma soirée du Nouvel An en photos</a><span class="rdate">3 jan. 2011</span></li>
-        </ul>
+        <ul class="recent-list" id="recents-container"></ul>
       </div>
     </div>
 
-    <!-- NUAGE DE TAGS -->
-    <div class="widget">
-      <div class="widget-title">🏷️ Tags</div>
-      <div class="widget-body">
-        <div class="tag-cloud">
-          <a href="javascript:void(0)" class="big">gaming</a>
-          <a href="javascript:void(0)">cinéma</a>
-          <a href="javascript:void(0)" class="big">skyrim</a>
-          <a href="javascript:void(0)" class="medium">musique</a>
-          <a href="javascript:void(0)">mcdo</a>
-          <a href="javascript:void(0)" class="medium">films</a>
-          <a href="javascript:void(0)">humour</a>
-          <a href="javascript:void(0)" class="big">top10</a>
-          <a href="javascript:void(0)">photos</a>
-          <a href="javascript:void(0)" class="medium">bouffe</a>
-          <a href="javascript:void(0)">sortie</a>
-          <a href="javascript:void(0)">PS3</a>
-          <a href="javascript:void(0)" class="medium">série</a>
-          <a href="javascript:void(0)">vacances</a>
-          <a href="javascript:void(0)">fail</a>
-          <a href="javascript:void(0)" class="big">lol</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ARCHIVES -->
-    <div class="widget">
-      <div class="widget-title">📅 Archives</div>
-      <div class="widget-body">
-        <ul class="archives-list">
-          <li><a href="javascript:void(0)">Novembre 2011</a><span class="cat-count">7</span></li>
-          <li><a href="javascript:void(0)">Octobre 2011</a><span class="cat-count">5</span></li>
-          <li><a href="javascript:void(0)">Septembre 2011</a><span class="cat-count">9</span></li>
-          <li><a href="javascript:void(0)">Août 2011</a><span class="cat-count">3</span></li>
-          <li><a href="javascript:void(0)">Juillet 2011</a><span class="cat-count">6</span></li>
-          <li><a href="javascript:void(0)">Juin 2011</a><span class="cat-count">8</span></li>
-          <li><a href="javascript:void(0)">… tout voir</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- STATS -->
-    <div class="widget">
-      <div class="widget-title">📊 Stats du blog</div>
-      <div class="widget-body stats-box">
-        <div class="stat-row"><span>Articles</span><span class="stat-num">178</span></div>
-        <div class="stat-row"><span>Commentaires</span><span class="stat-num">1 247</span></div>
-        <div class="stat-row"><span>Abonnés RSS</span><span class="stat-num">83</span></div>
-        <div class="stat-row"><span>En ligne maintenant</span><span class="stat-num">3</span></div>
-      </div>
-    </div>
-
-    <!-- PUB -->
-    <div class="widget">
-      <div class="widget-title">📢 Pub</div>
-      <div class="widget-body">
-        <div class="pub-banner">
-          <strong>🎮 Bon plan !</strong>
-          Skyrim -20% sur<br>Amazon ce week-end<br>
-          <a href="javascript:void(0)" style="color:#cc4400;font-weight:bold;font-size:12px;">→ Voir l'offre</a>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /sidebar -->
-
-</div><!-- /wrapper -->
-
-<!-- FOOTER -->
-<div id="footer">
+  </div></div><div id="footer">
   <div class="footer-links">
-    <a href="javascript:void(0)">Accueil</a>
-    <a href="javascript:void(0)">À propos</a>
-    <a href="javascript:void(0)">Contact</a>
-    <a href="javascript:void(0)">Plan du site</a>
-    <a href="javascript:void(0)">Flux RSS</a>
-    <a href="javascript:void(0)">Mentions légales</a>
+    <a onclick="filtrerParCategorie('Accueil')">Accueil</a>
+    <a onclick="alert('À propos')">À propos</a>
+    <a onclick="alert('Contact')">Contact</a>
   </div>
-  <p>© 2009–2011 MonBlog.fr — Tous droits réservés | Propulsé par <a href="javascript:void(0)">WordPress</a> | Thème par <a href="javascript:void(0)">Kévin</a></p>
-  <p style="margin-top:5px;color:#666;">Design optimisé pour Firefox 3.6+ et Internet Explorer 8+ · Résolution 1024×768 recommandée</p>
+  <p>© 2009–2026 MonBlog.fr — Tous droits réservés</p>
 </div>
 
 <script>
-  // ── COMPTEUR ──
+  // Initialisation du compteur
   let count = 48312;
   setInterval(() => {
     count++;
     document.getElementById('counter').textContent = String(count).padStart(6, '0');
   }, 4700);
 
-  // ── CHAT ──
-  const STORAGE_KEY = 'monblog_chat_v1';
-  const PSEUDO_KEY  = 'monblog_pseudo';
+  // Articles par défaut
+  const articlesDefaut = [
+    {
+      titre: "Mon top 10 des films de 2011 — vous allez pas être déçus !!",
+      categorie: "Actualité",
+      contenu: "Salut tout le monde ! J'ai enfin pris le temps de faire mon top films de cette année et franchement y'a eu du lourd. Si vous avez pas vu Inception, vous vivez pas... Mon pote Julien y'est allé 3 fois au ciné tellement c'est ouf.",
+      auteur: "Kévin_93",
+      date: "2011-03-14",
+      tags: ["cinéma", "films", "top10", "inception"]
+    },
+    {
+      titre: "Pourquoi je kiffe Skyrim et pourquoi vous devriez aussi",
+      categorie: "Gaming",
+      contenu: "SKYRIM EST SORTI AUJOURD'HUI ET JE SUIS MORT. J'ai pris ma journée, j'ai fait 8h de jeu non-stop et franchement les mecs de Bethesda se sont surpassés !",
+      auteur: "Kévin_93",
+      date: "2011-11-19",
+      tags: ["skyrim", "RPG", "gaming", "bethesda"]
+    }
+  ];
 
-  const messagesEl = document.getElementById('chat-messages');
-  const inputEl    = document.getElementById('chat-input');
-  const pseudoEl   = document.getElementById('chat-pseudo');
-  const sendBtn    = document.getElementById('chat-send');
-  const clearBtn   = document.getElementById('chat-clear');
-  const typingEl   = document.getElementById('typing');
+  let articles = JSON.parse(localStorage.getItem('monblog_articles')) || articlesDefaut;
+  let categorieFiltre = 'Accueil';
 
-  // Charger le pseudo sauvegardé
-  pseudoEl.value = localStorage.getItem(PSEUDO_KEY) || '';
-  pseudoEl.addEventListener('change', () => localStorage.setItem(PSEUDO_KEY, pseudoEl.value.trim()));
+  function afficherArticles() {
+    const container = document.getElementById('articles-container');
+    container.innerHTML = '';
 
-  // Charger l'historique
-  function loadHistory() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
-    catch { return []; }
-  }
-  function saveHistory(hist) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(hist));
-  }
-
-  function formatTime(ts) {
-    const d = new Date(ts);
-    return d.toLocaleDateString('fr-FR', {day:'2-digit',month:'2-digit'}) + ' ' +
-           d.toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
-  }
-
-  function renderMessages() {
-    const hist = loadHistory();
-    messagesEl.innerHTML = '';
-    hist.forEach(m => appendBubble(m, false));
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-  }
-
-  function appendBubble(msg, scroll = true) {
-    const isMe     = msg.role === 'user';
-    const isClaude = msg.role === 'claude';
-    const wrap = document.createElement('div');
-    wrap.className = 'chat-msg ' + (isMe ? 'me' : isClaude ? 'claude' : 'other');
-
-    const avatar = document.createElement('div');
-    avatar.className = 'chat-avatar ' + (isClaude ? 'claude-avatar' : 'user-avatar');
-    avatar.textContent = isClaude ? '🤖' : '😎';
-
-    const bubble = document.createElement('div');
-    bubble.className = 'chat-bubble';
-    bubble.innerHTML = `<div class="chat-name">${isClaude ? 'Claude (IA du blog)' : escHtml(msg.pseudo || 'Anonyme')}</div>
-      <div>${escHtml(msg.text)}</div>
-      <div class="chat-time">${formatTime(msg.ts)}</div>`;
-
-    wrap.appendChild(avatar);
-    wrap.appendChild(bubble);
-    messagesEl.appendChild(wrap);
-    if (scroll) messagesEl.scrollTop = messagesEl.scrollHeight;
-  }
-
-  function escHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
-  }
-
-  async function sendMessage() {
-    const text   = inputEl.value.trim();
-    const pseudo = pseudoEl.value.trim() || 'Anonyme';
-    if (!text) return;
-
-    localStorage.setItem(PSEUDO_KEY, pseudo);
-    inputEl.value = '';
-    sendBtn.disabled = true;
-
-    const hist = loadHistory();
-    const userMsg = { role: 'user', pseudo, text, ts: Date.now() };
-    hist.push(userMsg);
-    saveHistory(hist);
-    appendBubble(userMsg);
-
-    // Afficher typing
-    typingEl.classList.add('visible');
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-
-    // Construire l'historique pour l'API (10 derniers messages)
-    const recent = hist.slice(-10);
-    const apiMessages = recent.map(m => ({
-      role: m.role === 'user' ? 'user' : 'assistant',
-      content: m.role === 'user' ? `[${m.pseudo}]: ${m.text}` : m.text
-    }));
-
-    try {
-      const resp = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: `Tu es Claude, le personnage du blog MonBlog.fr, un blog style années 2010 tenu par Kévin_93. Tu réponds de façon décontractée, sympas, en français familier comme on écrit sur les vieux blogs — tu peux utiliser "lol", "xD", "mdr", des abréviations, mais reste naturel. Tu parles de jeux vidéo, ciné, bouffe, musique. Réponds toujours en moins de 3-4 phrases courtes. N'utilise pas de markdown.`,
-          messages: apiMessages
-        })
-      });
-      const data = await resp.json();
-      const replyText = data.content?.[0]?.text || "Oups j'ai eu un bug lol ! Réessaie 😅";
-
-      typingEl.classList.remove('visible');
-      const claudeMsg = { role: 'claude', pseudo: 'Claude', text: replyText, ts: Date.now() };
-      const h2 = loadHistory();
-      h2.push(claudeMsg);
-      saveHistory(h2);
-      appendBubble(claudeMsg);
-    } catch(e) {
-      typingEl.classList.remove('visible');
-      const errMsg = { role: 'claude', pseudo: 'Claude', text: "Oups problème de connexion ! Réessaie dans un moment 😅", ts: Date.now() };
-      const h2 = loadHistory();
-      h2.push(errMsg);
-      saveHistory(h2);
-      appendBubble(errMsg);
+    let articlesFiltres = articles;
+    if (categorieFiltre !== 'Accueil') {
+      articlesFiltres = articles.filter(a => a.categorie === categorieFiltre);
     }
 
-    sendBtn.disabled = false;
-    inputEl.focus();
+    if (articlesFiltres.length === 0) {
+      container.innerHTML = `<p style="padding: 20px; text-align: center; color: #777;">Aucun article dans cette catégorie pour le moment, créez-en un !</p>`;
+      return;
+    }
+
+    // Affiche les articles du plus récent au plus ancien
+    [...articlesFiltres].reverse().forEach((article, index) => {
+      // Trouver l'index global pour la suppression
+      const originalIndex = articles.indexOf(article);
+      let tagsHtml = "";
+      if (Array.isArray(article.tags)) {
+        tagsHtml = article.tags.map(tag => `<a>#${tag}</a>`).join(' ');
+      } else if (typeof article.tags === "string") {
+        tagsHtml = article.tags.split(" ").map(tag => `<a>#${tag}</a>`).join(' ');
+      }
+
+      const postDiv = document.createElement('div');
+      postDiv.className = 'post';
+      postDiv.innerHTML = `
+        <div class="post-header">
+          <div>
+            <div class="post-title">${article.titre}</div>
+            <div><span class="post-category-badge">${article.categorie}</span></div>
+          </div>
+          <div class="post-meta">
+            Posté par <span class="author">${article.auteur || 'Anonyme'}</span><br>
+            📅 ${article.date}<br>
+            <button class="btn-delete" onclick="supprimerArticle(${originalIndex})">Supprimer</button>
+          </div>
+        </div>
+        <div class="post-body">
+          <p>${article.contenu}</p>
+        </div>
+        <div class="post-footer">
+          <span class="post-tags">🏷️ ${tagsHtml}</span>
+        </div>
+      `;
+      container.appendChild(postDiv);
+    });
+
+    afficherRecents();
   }
 
-  sendBtn.addEventListener('click', sendMessage);
-  inputEl.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
-  });
-  clearBtn.addEventListener('click', () => {
-    if (confirm('Supprimer tout l\'historique du chat ?')) {
-      localStorage.removeItem(STORAGE_KEY);
-      renderMessages();
+  function filtrerParCategorie(cat) {
+    categorieFiltre = cat;
+    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(el => {
+      if (el.textContent.includes(cat)) {
+        el.classList.add('active');
+      }
+    });
+
+    // Sélection de la catégorie "Accueil" qui n'inclut pas le symbole du bouton
+    if(cat === 'Accueil') {
+      document.querySelector('.nav-item').classList.add('active');
     }
+
+    afficherArticles();
+  }
+
+  function rechercherArticle() {
+    const motCle = document.getElementById('recherche').value.toLowerCase();
+    const container = document.getElementById('articles-container');
+    container.innerHTML = '';
+
+    const resultats = articles.filter(a => 
+      a.titre.toLowerCase().includes(motCle) || 
+      a.contenu.toLowerCase().includes(motCle) || 
+      a.categorie.toLowerCase().includes(motCle)
+    );
+
+    if (resultats.length === 0) {
+      container.innerHTML = `<p style="padding: 20px; text-align: center; color: #777;">Aucun article trouvé...</p>`;
+      return;
+    }
+
+    resultats.reverse().forEach(article => {
+      const tagsHtml = article.tags ? (Array.isArray(article.tags) ? article.tags.map(t => `<a>#${t}</a>`).join(' ') : `<a>#${article.tags}</a>`) : '';
+      const postDiv = document.createElement('div');
+      postDiv.className = 'post';
+      postDiv.innerHTML = `
+        <div class="post-header">
+          <div>
+            <div class="post-title">${article.titre}</div>
+            <div><span class="post-category-badge">${article.categorie}</span></div>
+          </div>
+        </div>
+        <div class="post-body">
+          <p>${article.contenu}</p>
+        </div>
+        <div class="post-footer">
+          <span class="post-tags">🏷️ ${tagsHtml}</span>
+        </div>
+      `;
+      container.appendChild(postDiv);
+    });
+  }
+
+  function ajouterArticle() {
+    const titre = document.getElementById('art-titre').value;
+    const categorie = document.getElementById('art-cat').value;
+    const contenu = document.getElementById('art-contenu').value;
+    const auteur = document.getElementById('art-auteur').value || 'Anonyme';
+    const tagsInput = document.getElementById('art-tags').value;
+    const tags = tagsInput ? tagsInput.split(' ') : ['blog'];
+
+    if (!titre || !contenu) {
+      alert("Veuillez remplir au moins le titre et le contenu !");
+      return;
+    }
+
+    const d = new Date();
+    const dateStr = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+
+    const nouveauPost = {
+      titre,
+      categorie,
+      contenu,
+      auteur,
+      date: constStr,
+      tags
+    };
+
+    articles.push(nouveauPost);
+    localStorage.setItem('monblog_articles', JSON.stringify(articles));
+
+    document.getElementById('art-titre').value = '';
+    document.getElementById('art-contenu').value = '';
+    document.getElementById('art-tags').value = '';
+
+    filtrerParCategorie(categorie);
+  }
+
+  function supprimerArticle(index) {
+    if (confirm("Voulez-vous vraiment supprimer cet article ?")) {
+      articles.splice(index, 1);
+      localStorage.setItem('monblog_articles', JSON.stringify(articles));
+      afficherArticles();
+    }
+  }
+
+  function afficherRecents() {
+    const recents = document.getElementById('recents-container');
+    recents.innerHTML = '';
+    const derniers = articles.slice(-5).reverse();
+    derniers.forEach(a => {
+      recents.innerHTML += `
+        <li><a>${a.titre.substring(0, 30)}...</a><span class="rdate">${a.date}</span></li>
+      `;
+    });
+  }
+
+  afficherArticles();
+
+  // Gestion du chat local
+  const chatMessages = document.getElementById('chat-messages');
+  let chatData = JSON.parse(localStorage.getItem('monblog_chat')) || [];
+
+  function rendreChat() {
+    chatMessages.innerHTML = '';
+    chatData.forEach(m => {
+      const isMe = (m.pseudo === document.getElementById('chat-pseudo').value);
+      chatMessages.innerHTML += `
+        <div class="chat-msg ${isMe ? 'me' : 'other'}">
+          <div class="chat-avatar user-avatar">😎</div>
+          <div class="chat-bubble">
+            <div class="chat-name">${m.pseudo}</div>
+            <div>${m.texte}</div>
+            <div class="chat-time">${m.heure}</div>
+          </div>
+        </div>
+      `;
+    });
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  document.getElementById('chat-send').addEventListener('click', () => {
+    const pseudo = document.getElementById('chat-pseudo').value || 'Anonyme';
+    const texte = document.getElementById('chat-input').value;
+    if (!texte) return;
+
+    const heure = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    chatData.push({ pseudo, texte, heure });
+    localStorage.setItem('monblog_chat', JSON.stringify(chatData));
+    document.getElementById('chat-input').value = '';
+    rendreChat();
   });
 
-  renderMessages();
+  document.getElementById('chat-clear').addEventListener('click', () => {
+    localStorage.removeItem('monblog_chat');
+    chatData = [];
+    rendreChat();
+  });
+
+  rendreChat();
 </script>
 </body>
 </html>
