@@ -570,7 +570,7 @@ a:hover { text-decoration: underline; color: #003399; }
       <div class="site-tagline">✏️ Le blog de tout et n'importe quoi depuis 2009</div>
     </div>
     <div class="header-date">
-      <strong id="dateAujourd">Dimanche 3 mai 2026</strong>
+      <strong id="dateAujourd">Vendredi 25 décembre 2015</strong>
       Bonne lecture ! 😊
     </div>
   </div>
@@ -864,15 +864,15 @@ a:hover { text-decoration: underline; color: #003399; }
       return;
     }
 
-    const d = new Date();
-    const dateStr = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    // Heure bloquée au 25 Décembre 2015
+    const dateStr = '2015-12-25';
 
     const nouveauPost = {
       titre,
       categorie,
       contenu,
       auteur,
-      date: constStr,
+      date: dateStr, // Correction ici de l'ancienne variable constStr qui n'existait pas
       tags
     };
 
@@ -934,7 +934,8 @@ a:hover { text-decoration: underline; color: #003399; }
     const texte = document.getElementById('chat-input').value;
     if (!texte) return;
 
-    const heure = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    // Heure bloquée à 19h48
+    const heure = '19:48';
     chatData.push({ pseudo, texte, heure });
     localStorage.setItem('monblog_chat', JSON.stringify(chatData));
     document.getElementById('chat-input').value = '';
