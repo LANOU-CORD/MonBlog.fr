@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
 }
 
-a { color: #0066cc; text-decoration: none; }
+a { color: #0066cc; text-decoration: none; cursor: pointer; }
 a:hover { text-decoration: underline; color: #003399; }
 
 /* ── HEADER ── */
@@ -25,7 +25,6 @@ a:hover { text-decoration: underline; color: #003399; }
   background: linear-gradient(180deg, #2a5fa8 0%, #1a3f7a 40%, #0d2550 100%);
   border-bottom: 3px solid #0a1e40;
   box-shadow: 0 3px 8px rgba(0,0,0,0.5);
-  padding: 0;
 }
 .header-top {
   background: linear-gradient(180deg, #3a6fc0 0%, #1e4a90 100%);
@@ -40,915 +39,281 @@ a:hover { text-decoration: underline; color: #003399; }
   font-size: 32px;
   font-weight: bold;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6), 0 0 20px rgba(100,160,255,0.4);
-  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
   cursor: pointer;
 }
 .site-title span { color: #ffdd44; }
-.site-tagline {
-  font-size: 11px;
-  color: #a8c8f0;
-  font-style: italic;
-  margin-top: 3px;
-}
-.header-date {
-  font-size: 11px;
-  color: #a8c8f0;
-  text-align: right;
-}
+.header-date { font-size: 11px; color: #a8c8f0; text-align: right; }
 .header-date strong { color: #fff; display: block; font-size: 13px; }
 
 /* NAV BAR */
 #navbar {
   background: linear-gradient(180deg, #1e4a90 0%, #0d2550 100%);
   border-top: 1px solid #3a6fc0;
-  border-bottom: 3px solid #081830;
   padding: 0 10px;
   display: flex;
   align-items: center;
-  gap: 2px;
 }
 .nav-item {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 10px 16px;
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 12px;
   font-weight: bold;
   color: #cce0ff;
-  text-decoration: none;
   border-right: 1px solid rgba(255,255,255,0.15);
-  background: transparent;
-  transition: background 0.1s;
-  cursor: pointer;
 }
-.nav-item:hover {
-  background: linear-gradient(180deg, #4a80c8 0%, #2a5fa8 100%);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-item.active {
-  background: linear-gradient(180deg, #ffcc00 0%, #ee9900 100%);
-  color: #222;
-  text-decoration: none;
-  border-radius: 0;
-  text-shadow: none;
-}
-.nav-search {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 0;
-}
-.nav-search input {
-  border: 1px solid #3a6fc0;
-  border-radius: 2px;
-  padding: 3px 6px;
-  font-size: 11px;
-  background: #fff;
-  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
-  width: 140px;
-}
-.nav-search button {
-  background: linear-gradient(180deg, #4a80c8, #2a5fa8);
-  border: 1px solid #1a3f7a;
-  border-radius: 2px;
-  padding: 3px 10px;
-  font-size: 11px;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-.nav-search button:hover { background: linear-gradient(180deg, #5a90d8, #3a6fb8); }
+.nav-item:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.nav-item.active { background: #ffcc00; color: #222; }
 
 /* ── LAYOUT ── */
 #wrapper {
-  max-width: 960px;
+  max-width: 1000px;
   margin: 12px auto;
   display: flex;
   gap: 14px;
   padding: 0 10px;
 }
 
-/* ── MAIN CONTENT ── */
-#content { flex: 1; min-width: 0; }
+#content { flex: 1; }
 
 /* POST */
 .post {
   background: #fff;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8);
   margin-bottom: 16px;
-  overflow: hidden;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 .post-header {
-  background: linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
-  border-bottom: 1px solid #ccc;
-  padding: 10px 14px 8px;
+  background: #f5f5f5;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
 }
-.post-title {
-  font-family: Georgia, serif;
-  font-size: 18px;
-  font-weight: bold;
-  color: #1a3f7a;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.8);
-}
-.post-title a { color: #1a3f7a; }
-.post-title a:hover { color: #e05500; text-decoration: none; }
-.post-meta {
-  font-size: 10px;
-  color: #777;
-  text-align: right;
-  white-space: nowrap;
-  margin-left: 10px;
-}
-.post-meta .author { color: #0066cc; font-weight: bold; }
-.post-category-badge {
-  display: inline-block;
-  background: linear-gradient(180deg, #ffaa00, #dd8800);
-  color: #fff;
-  font-size: 9px;
-  font-weight: bold;
-  padding: 2px 7px;
-  border-radius: 8px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 4px;
-}
-.post-body {
-  padding: 14px;
-  line-height: 1.7;
-  font-size: 13px;
-  color: #444;
-}
-.post-body p { margin-bottom: 10px; }
-.post-footer {
-  background: linear-gradient(180deg, #f0f0f0, #e4e4e4);
-  border-top: 1px solid #ccc;
-  padding: 7px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 11px;
-  color: #666;
-}
-.post-footer a { color: #0066cc; font-size: 11px; }
-.read-more {
-  display: inline-block;
-  background: linear-gradient(180deg, #4a80c8, #2a5fa8);
-  color: #fff !important;
-  padding: 3px 10px;
-  border-radius: 2px;
-  font-size: 11px;
-  font-weight: bold;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  margin-left: auto;
-  text-decoration: none !important;
-  cursor: pointer;
-}
-.read-more:hover { background: linear-gradient(180deg, #5a90d8, #3a6fb8); }
+.post-title { font-weight: bold; color: #1a3f7a; font-size: 16px; }
+.post-body { padding: 15px; line-height: 1.6; }
+.post-category-badge { background: #ffaa00; color: #fff; padding: 2px 6px; font-size: 10px; border-radius: 4px; }
 
-/* FORMULAIRE DE CRÉATION */
-#admin-form {
-  background: #fafafa;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
-}
-#admin-form h3 {
-  font-family: Georgia, serif;
-  font-size: 16px;
-  color: #1a3f7a;
-  margin-bottom: 10px;
-}
-#admin-form input, #admin-form textarea {
-  width: 100%;
-  padding: 6px;
-  margin-bottom: 8px;
-  border: 1px solid #bbb;
-  border-radius: 2px;
-  font-family: inherit;
-  font-size: 12px;
-}
-#admin-form textarea { resize: vertical; height: 80px; }
-.form-group-inline { display: flex; gap: 10px; margin-bottom: 8px; }
-.form-group-inline > div { flex: 1; }
-.btn-submit {
-  background: linear-gradient(180deg, #4a80c8, #2a5fa8);
-  color: #fff;
-  border: 1px solid #1a3f7a;
-  padding: 6px 14px;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 2px;
-  cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-.btn-submit:hover { background: linear-gradient(180deg, #5a90d8, #3a6fb8); }
-.btn-delete {
-  background: linear-gradient(180deg, #dd3333, #aa1111);
-  color: #fff;
-  border: 1px solid #660000;
-  padding: 3px 8px;
-  font-size: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 2px;
-  margin-top: 4px;
-}
+/* FORMULAIRE */
+#admin-form { background: #fff; border: 1px solid #aaa; padding: 15px; margin-bottom: 20px; }
+#admin-form input, #admin-form textarea, #admin-form select { width: 100%; margin-bottom: 10px; padding: 8px; border: 1px solid #ccc; }
+.btn-submit { background: #2a5fa8; color: #fff; border: none; padding: 10px; cursor: pointer; font-weight: bold; width: 100%; }
 
 /* PAGINATION */
-.pagination {
-  background: linear-gradient(180deg, #f5f5f5, #e8e8e8);
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 8px 14px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-  font-size: 12px;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-.page-btn {
-  display: inline-block;
-  background: linear-gradient(180deg, #fff, #e8e8e8);
-  border: 1px solid #bbb;
-  border-radius: 2px;
-  padding: 3px 9px;
-  font-size: 12px;
-  color: #333;
-  cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  text-decoration: none;
-}
-.page-btn:hover { background: linear-gradient(180deg, #d0d8f0, #b8c8e8); color: #333; text-decoration: none; }
-.page-btn.current { background: linear-gradient(180deg, #2a5fa8, #1a3f7a); color: #fff; border-color: #0d2550; }
+.pagination { display: none; text-align: center; margin-bottom: 20px; }
+.page-btn { padding: 5px 10px; border: 1px solid #ccc; background: #fff; margin: 2px; }
+.page-btn.active { background: #2a5fa8; color: #fff; }
 
-/* ── SIDEBAR ── */
-#sidebar { width: 210px; flex-shrink: 0; }
-
-.widget {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.12);
-  margin-bottom: 14px;
-  overflow: hidden;
-}
-.widget-title {
-  background: linear-gradient(180deg, #3a6fc0 0%, #1e4a90 100%);
-  color: #fff;
-  font-family: 'Trebuchet MS', sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 6px 10px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-  letter-spacing: 0.3px;
-  border-bottom: 1px solid #0d2550;
-  text-transform: uppercase;
-}
+/* SIDEBAR */
+#sidebar { width: 240px; }
+.widget { background: #fff; border: 1px solid #ccc; margin-bottom: 15px; }
+.widget-title { background: #1e4a90; color: #fff; padding: 6px 10px; font-weight: bold; font-size: 12px; }
 .widget-body { padding: 10px; }
 
-/* À PROPOS */
-.about-avatar {
-  width: 60px; height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6699cc, #336699);
-  border: 3px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 24px;
-  float: left; margin: 0 10px 8px 0;
-}
-.about-text { font-size: 11px; line-height: 1.6; color: #555; overflow: hidden; }
+.visitor-counter { background: #000; color: #0f0; font-family: monospace; font-size: 20px; text-align: center; padding: 10px; }
 
-/* CATÉGORIES */
-.cat-list { list-style: none; }
-.cat-list li {
-  border-bottom: 1px dotted #ddd;
-  padding: 5px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  cursor: pointer;
-}
-.cat-list li:last-child { border-bottom: none; }
-.cat-list a { color: #0066cc; }
-.cat-count {
-  background: #e8e8e8;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 0 6px;
-  font-size: 10px;
-  color: #666;
-}
+/* CHAT */
+#chat-messages { height: 150px; overflow-y: auto; background: #f9f9f9; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
+.chat-msg { margin-bottom: 5px; font-size: 11px; }
 
-/* ARTICLES RÉCENTS */
-.recent-list { list-style: none; }
-.recent-list li {
-  border-bottom: 1px dotted #ddd;
-  padding: 6px 0;
-  font-size: 11px;
-}
-.recent-list li:last-child { border-bottom: none; }
-.recent-list a { color: #0066cc; line-height: 1.4; display: block; cursor: pointer; }
-.recent-list .rdate { color: #999; font-size: 10px; }
-
-/* NUAGE DE TAGS */
-.tag-cloud { line-height: 2; }
-.tag-cloud a {
-  display: inline-block;
-  background: linear-gradient(180deg, #e8eef8, #d8e4f0);
-  border: 1px solid #b0c0d8;
-  border-radius: 2px;
-  color: #336699;
-  font-size: 10px;
-  padding: 1px 6px;
-  margin: 2px 2px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-.tag-cloud a:hover { background: linear-gradient(180deg, #c8d8f0, #b0c8e8); text-decoration: none; }
-
-/* STATS */
-.stats-box { font-size: 11px; }
-.stat-row {
-  display: flex; justify-content: space-between;
-  padding: 4px 0; border-bottom: 1px dotted #eee;
-}
-.stat-row:last-child { border-bottom: none; }
-.stat-num { font-weight: bold; color: #1a3f7a; }
-
-/* COMPTEUR */
-.visitor-counter {
-  background: #000;
-  border: 2px inset #444;
-  border-radius: 3px;
-  text-align: center;
-  padding: 8px;
-  font-family: 'Courier New', monospace;
-  font-size: 22px;
-  color: #00ff00;
-  letter-spacing: 4px;
-  text-shadow: 0 0 8px #00ff00;
-  box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
-}
-.counter-label { font-size: 10px; color: #888; text-align: center; margin-top: 5px; font-style: italic; }
-
-/* ANNONCE PUB */
-.pub-banner {
-  background: linear-gradient(135deg, #fff8e0, #fff0b0);
-  border: 2px dashed #ffaa00;
-  border-radius: 3px;
-  text-align: center;
-  padding: 12px 8px;
-  font-size: 11px;
-  color: #885500;
-}
-.pub-banner strong { display: block; font-size: 14px; color: #cc4400; }
-
-/* ── FOOTER ── */
-#footer {
-  background: linear-gradient(180deg, #2a2a2a, #111);
-  border-top: 3px solid #0d2550;
-  color: #aaa;
-  text-align: center;
-  padding: 16px;
-  font-size: 11px;
-  margin-top: 10px;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.4);
-}
-#footer a { color: #6699cc; cursor: pointer; }
-.footer-links { margin-bottom: 6px; }
-.footer-links a { margin: 0 8px; }
-
-/* ── CHATBOX ── */
-#chatbox-section {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
-  margin-bottom: 16px;
-  overflow: hidden;
-}
-#chatbox-section .post-header {
-  background: linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
-  border-bottom: 1px solid #ccc;
-  padding: 10px 14px;
-}
-#chatbox-section .post-header h2 {
-  font-family: Georgia, serif;
-  font-size: 17px;
-  font-weight: bold;
-  color: #1a3f7a;
-}
-#chatbox-section .post-header p {
-  font-size: 10px; color: #777; margin-top: 2px;
-}
-#chat-messages {
-  padding: 10px 14px;
-  max-height: 200px;
-  overflow-y: auto;
-  background: #fafafa;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-#chat-messages:empty::before {
-  content: "Aucun message pour l'instant... Sois le premier à écrire ! 😊";
-  color: #aaa; font-style: italic; font-size: 12px;
-  display: block; text-align: center; padding: 20px 0;
-}
-.chat-msg {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-  animation: fadeIn 0.3s ease;
-}
-@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
-.chat-msg.me { flex-direction: row-reverse; }
-.chat-avatar {
-  width: 32px; height: 32px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px; flex-shrink: 0;
-  border: 2px solid #ddd;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-}
-.chat-avatar.user-avatar { background: linear-gradient(135deg, #6699cc, #336699); }
-.chat-avatar.claude-avatar { background: linear-gradient(135deg, #e8a030, #cc7700); }
-.chat-bubble {
-  max-width: 75%;
-  padding: 7px 10px;
-  border-radius: 8px;
-  font-size: 12px;
-  line-height: 1.6;
-  border: 1px solid #ddd;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.08);
-}
-.chat-msg.me .chat-bubble {
-  background: linear-gradient(180deg, #d8eaff, #c0d8f8);
-  border-color: #a0c0e8;
-  text-align: right;
-}
-.chat-msg.other .chat-bubble {
-  background: linear-gradient(180deg, #fff, #f4f4f4);
-  border-color: #ddd;
-}
-.chat-name {
-  font-size: 10px; font-weight: bold; color: #555;
-  margin-bottom: 2px;
-}
-.chat-msg.me .chat-name { text-align: right; color: #2255aa; }
-.chat-time { font-size: 9px; color: #bbb; margin-top: 3px; }
-.chat-msg.me .chat-time { text-align: right; }
-#chat-form {
-  padding: 10px 14px;
-  background: linear-gradient(180deg, #f0f0f0, #e4e4e4);
-  display: flex; flex-direction: column; gap: 8px;
-}
-.chat-prenom-row {
-  display: flex; gap: 8px; align-items: center;
-  font-size: 11px; color: #555;
-}
-.chat-prenom-row input {
-  border: 1px solid #bbb; border-radius: 2px;
-  padding: 4px 7px; font-size: 11px;
-  background: #fff; box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
-  width: 130px;
-}
-.chat-input-row { display: flex; gap: 6px; }
-#chat-input {
-  flex: 1;
-  border: 1px solid #bbb; border-radius: 2px;
-  padding: 6px 8px; font-size: 12px;
-  font-family: Verdana, sans-serif;
-  background: #fff; box-shadow: inset 1px 1px 3px rgba(0,0,0,0.15);
-  resize: none; height: 38px;
-}
-#chat-send {
-  background: linear-gradient(180deg, #4a80c8, #2a5fa8);
-  color: #fff; border: 1px solid #1a3f7a;
-  border-radius: 2px; padding: 0 14px;
-  font-size: 12px; font-weight: bold; font-family: 'Trebuchet MS', sans-serif;
-  cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  white-space: nowrap;
-}
-#chat-send:hover { background: linear-gradient(180deg, #5a90d8, #3a6fb8); }
-#chat-send:active { transform: translateY(1px); }
-#chat-clear {
-  background: none; border: none; font-size: 10px;
-  color: #cc3300; cursor: pointer; text-decoration: underline;
-  font-family: Verdana, sans-serif;
-}
-#chat-clear:hover { color: #ff0000; }
-
-/* SÉPARATEUR DÉCORATIF */
-.divider {
-  height: 4px;
-  background: linear-gradient(90deg, transparent, #2a5fa8 20%, #ffdd44 50%, #2a5fa8 80%, transparent);
-  margin: 0;
-}
+#footer { text-align: center; padding: 20px; font-size: 11px; color: #666; }
 </style>
 </head>
 <body>
 
 <div id="header">
   <div class="header-top">
-    <div>
-      <div class="site-title" onclick="filtrerParCategorie('Accueil')">Mon<span>Blog</span>.fr</div>
-      <div class="site-tagline">✏️ Le blog de tout et n'importe quoi depuis 2009</div>
-    </div>
+    <div class="site-title" onclick="filtrerParCategorie('Accueil')">Mon<span>Blog</span>.fr</div>
     <div class="header-date">
-      <strong id="dateAujourd">Vendredi 25 décembre 2015</strong>
-      Bonne lecture ! 😊
+      <strong>Vendredi 25 décembre 2015</strong>
+      19:48 — Bonne lecture ! 😊
     </div>
   </div>
-  <div class="divider"></div>
   <div id="navbar">
     <a class="nav-item active" onclick="filtrerParCategorie('Accueil')">🏠 Accueil</a>
     <a class="nav-item" onclick="filtrerParCategorie('Actualité')">💬 Actualité</a>
     <a class="nav-item" onclick="filtrerParCategorie('Gaming')">🎮 Gaming</a>
     <a class="nav-item" onclick="filtrerParCategorie('Musique')">🎵 Musique</a>
     <a class="nav-item" onclick="filtrerParCategorie('Bouffe')">🍕 Bouffe</a>
-    <a class="nav-item" onclick="filtrerParCategorie('Humour')">😂 Humour</a>
-    <a class="nav-item" onclick="filtrerParCategorie('Photos')">📷 Photos</a>
-    <a class="nav-item" onclick="javascript:alert('Page Contact en construction !')">✉️ Contact</a>
-    <div class="nav-search">
-      <input type="text" id="recherche" placeholder="Rechercher..." oninput="rechercherArticle()" />
-      <button onclick="rechercherArticle()">Go</button>
-    </div>
   </div>
 </div>
 
 <div id="wrapper">
-
   <div id="content">
-
     <div id="admin-form">
-      <h3>✍️ Ajouter un nouvel article</h3>
-      <div class="form-group-inline">
-        <div>
-          <label>Titre :</label>
-          <input type="text" id="art-titre" placeholder="Titre de l'article">
-        </div>
-        <div>
-          <label>Catégorie :</label>
-          <select id="art-cat" style="width:100%; padding:6px; border:1px solid #bbb; border-radius:2px; font-size:12px;">
-            <option value="Actualité">💬 Actualité</option>
-            <option value="Gaming">🎮 Gaming</option>
-            <option value="Musique">🎵 Musique</option>
-            <option value="Bouffe">🍕 Bouffe</option>
-            <option value="Humour">😂 Humour</option>
-            <option value="Photos">📷 Photos</option>
-          </select>
-        </div>
-      </div>
-      <label>Contenu :</label>
-      <textarea id="art-contenu" placeholder="Écrivez le contenu de votre article ici..."></textarea>
-      <div class="form-group-inline">
-        <div>
-          <label>Votre pseudo :</label>
-          <input type="text" id="art-auteur" placeholder="Pseudo">
-        </div>
-        <div>
-          <label>Tags :</label>
-          <input type="text" id="art-tags" placeholder="ex: jeux cinéma musique">
-        </div>
-      </div>
+      <h3 style="margin-bottom:10px">✍️ Ajouter un article</h3>
+      <input type="text" id="art-titre" placeholder="Titre de l'article">
+      <select id="art-cat">
+        <option value="Actualité">Actualité</option>
+        <option value="Gaming">Gaming</option>
+        <option value="Musique">Musique</option>
+        <option value="Bouffe">Bouffe</option>
+      </select>
+      <textarea id="art-contenu" placeholder="Votre texte..."></textarea>
       <button class="btn-submit" onclick="ajouterArticle()">Publier l'article</button>
     </div>
 
     <div id="articles-container"></div>
+    <div id="pagination" class="pagination"></div>
 
-    <div id="chatbox-section">
-      <div class="post-header">
-        <h2>💬 Le chat du blog</h2>
-        <p>Discute avec les autres lecteurs ou avec l'IA !</p>
-      </div>
-      <div id="chat-messages"></div>
-      <div id="chat-form">
-        <div class="chat-prenom-row">
-          <label>Ton pseudo :</label>
-          <input type="text" id="chat-pseudo" value="Visiteur" maxlength="20" />
-          <span style="margin-left:auto;">
-            <button id="chat-clear">🗑️ Effacer</button>
-          </span>
+    <div class="widget" style="margin-top:20px">
+        <div class="widget-title">💬 Chat du blog</div>
+        <div class="widget-body">
+            <div id="chat-messages"></div>
+            <input type="text" id="chat-input" placeholder="Message..." style="width:70%">
+            <button onclick="envoyerChat()">Envoyer</button>
         </div>
-        <div class="chat-input-row">
-          <textarea id="chat-input" placeholder="Écris ton message ici..."></textarea>
-          <button id="chat-send">Envoyer ►</button>
-        </div>
-      </div>
     </div>
+  </div>
 
-    <div class="pagination">
-      « Précédent &nbsp;
-      <a class="page-btn current">1</a>
-      <a class="page-btn">2</a>
-      &nbsp; Suivant »
-    </div>
-
-  </div><div id="sidebar">
-
+  <div id="sidebar">
     <div class="widget">
       <div class="widget-title">👤 À propos</div>
       <div class="widget-body">
-        <div class="about-avatar">😎</div>
-        <div class="about-text">
-          Salut moi c'est Kévin, et vous pouvez maintenant gérer votre propre blog !
-          <br><br>
-          <a href="javascript:alert('En construction !')">📧 Me contacter</a>
-        </div>
+        <div id="about-text" style="font-size:11px; margin-bottom:10px">Salut moi c'est Kévin, et vous pouvez maintenant gérer votre propre blog !</div>
+        <button onclick="editerAPropos()" style="font-size:10px">Modifier le texte</button>
       </div>
     </div>
 
     <div class="widget">
       <div class="widget-title">👁️ Visiteurs</div>
       <div class="widget-body">
-        <div class="visitor-counter" id="counter">048312</div>
-        <div class="counter-label">visiteurs depuis le 12/09/2009</div>
+        <div class="visitor-counter" id="counter">048321</div>
       </div>
     </div>
 
     <div class="widget">
       <div class="widget-title">📂 Catégories</div>
       <div class="widget-body">
-        <ul class="cat-list">
-          <li onclick="filtrerParCategorie('Actualité')"><span>💬 Actualité</span><span class="cat-count">28</span></li>
-          <li onclick="filtrerParCategorie('Gaming')"><span>🎮 Gaming</span><span class="cat-count">34</span></li>
-          <li onclick="filtrerParCategorie('Musique')"><span>🎵 Musique</span><span class="cat-count">19</span></li>
-          <li onclick="filtrerParCategorie('Bouffe')"><span>🍕 Bouffe</span><span class="cat-count">21</span></li>
-          <li onclick="filtrerParCategorie('Humour')"><span>😂 Humour</span><span class="cat-count">15</span></li>
-          <li onclick="filtrerParCategorie('Photos')"><span>📷 Photos</span><span class="cat-count">11</span></li>
+        <ul style="list-style:none; font-size:12px" id="cat-list-count">
+          <li onclick="filtrerParCategorie('Actualité')">💬 Actualité</li>
+          <li onclick="filtrerParCategorie('Gaming')">🎮 Gaming</li>
+          <li onclick="filtrerParCategorie('Musique')">🎵 Musique</li>
+          <li onclick="filtrerParCategorie('Bouffe')">🍕 Bouffe</li>
         </ul>
       </div>
     </div>
-
-    <div class="widget">
-      <div class="widget-title">📰 Articles récents</div>
-      <div class="widget-body">
-        <ul class="recent-list" id="recents-container"></ul>
-      </div>
-    </div>
-
-  </div></div><div id="footer">
-  <div class="footer-links">
-    <a onclick="filtrerParCategorie('Accueil')">Accueil</a>
-    <a onclick="alert('À propos')">À propos</a>
-    <a onclick="alert('Contact')">Contact</a>
   </div>
-  <p>© 2009–2026 MonBlog.fr — Tous droits réservés</p>
+</div>
+
+<div id="footer">
+    © 2009-2015 MonBlog.fr — <a onclick="localStorage.clear(); location.reload();">Reset Blog</a>
 </div>
 
 <script>
-  // Initialisation du compteur
-  let count = 48312;
+  // --- COMPTEUR (Fixé) ---
+  let count = 48321;
   setInterval(() => {
     count++;
     document.getElementById('counter').textContent = String(count).padStart(6, '0');
-  }, 4700);
+  }, 5000);
 
-  // Articles par défaut
-  const articlesDefaut = [
-    {
-      titre: "Mon top 10 des films de 2011 — vous allez pas être déçus !!",
-      categorie: "Actualité",
-      contenu: "Salut tout le monde ! J'ai enfin pris le temps de faire mon top films de cette année et franchement y'a eu du lourd. Si vous avez pas vu Inception, vous vivez pas... Mon pote Julien y'est allé 3 fois au ciné tellement c'est ouf.",
-      auteur: "Kévin_93",
-      date: "2011-03-14",
-      tags: ["cinéma", "films", "top10", "inception"]
-    },
-    {
-      titre: "Pourquoi je kiffe Skyrim et pourquoi vous devriez aussi",
-      categorie: "Gaming",
-      contenu: "SKYRIM EST SORTI AUJOURD'HUI ET JE SUIS MORT. J'ai pris ma journée, j'ai fait 8h de jeu non-stop et franchement les mecs de Bethesda se sont surpassés !",
-      auteur: "Kévin_93",
-      date: "2011-11-19",
-      tags: ["skyrim", "RPG", "gaming", "bethesda"]
-    }
+  // --- ARTICLES ---
+  let articles = JSON.parse(localStorage.getItem('blog_v2_articles')) || [
+    { titre: "Bienvenue sur mon nouveau blog", categorie: "Actualité", contenu: "Ceci est mon tout premier article publié le jour de Noël !", date: "2015-12-25" }
   ];
-
-  let articles = JSON.parse(localStorage.getItem('monblog_articles')) || articlesDefaut;
-  let categorieFiltre = 'Accueil';
+  let filtreActuel = 'Accueil';
 
   function afficherArticles() {
     const container = document.getElementById('articles-container');
     container.innerHTML = '';
+    
+    // Filtrage
+    let listeAffichee = (filtreActuel === 'Accueil') 
+        ? articles 
+        : articles.filter(a => a.categorie === filtreActuel);
 
-    let articlesFiltres = articles;
-    if (categorieFiltre !== 'Accueil') {
-      articlesFiltres = articles.filter(a => a.categorie === categorieFiltre);
+    if(listeAffichee.length === 0) {
+        container.innerHTML = "<p style='text-align:center; padding:20px'>Aucun article dans cette catégorie.</p>";
     }
 
-    if (articlesFiltres.length === 0) {
-      container.innerHTML = `<p style="padding: 20px; text-align: center; color: #777;">Aucun article dans cette catégorie pour le moment, créez-en un !</p>`;
-      return;
-    }
-
-    // Affiche les articles du plus récent au plus ancien
-    [...articlesFiltres].reverse().forEach((article, index) => {
-      // Trouver l'index global pour la suppression
-      const originalIndex = articles.indexOf(article);
-      let tagsHtml = "";
-      if (Array.isArray(article.tags)) {
-        tagsHtml = article.tags.map(tag => `<a>#${tag}</a>`).join(' ');
-      } else if (typeof article.tags === "string") {
-        tagsHtml = article.tags.split(" ").map(tag => `<a>#${tag}</a>`).join(' ');
-      }
-
-      const postDiv = document.createElement('div');
-      postDiv.className = 'post';
-      postDiv.innerHTML = `
-        <div class="post-header">
-          <div>
-            <div class="post-title">${article.titre}</div>
-            <div><span class="post-category-badge">${article.categorie}</span></div>
+    listeAffichee.slice().reverse().forEach((art, idx) => {
+      container.innerHTML += `
+        <div class="post">
+          <div class="post-header">
+            <span class="post-title">${art.titre}</span>
+            <span class="post-category-badge">${art.categorie}</span>
           </div>
-          <div class="post-meta">
-            Posté par <span class="author">${article.auteur || 'Anonyme'}</span><br>
-            📅 ${article.date}<br>
-            <button class="btn-delete" onclick="supprimerArticle(${originalIndex})">Supprimer</button>
+          <div class="post-body">${art.contenu}</div>
+          <div style="font-size:10px; padding:10px; background:#f9f9f9; border-top:1px solid #eee">
+            Posté le ${art.date} <a style="color:red; margin-left:10px" onclick="supprimerArticle(${articles.indexOf(art)})">[Supprimer]</a>
           </div>
-        </div>
-        <div class="post-body">
-          <p>${article.contenu}</p>
-        </div>
-        <div class="post-footer">
-          <span class="post-tags">🏷️ ${tagsHtml}</span>
         </div>
       `;
-      container.appendChild(postDiv);
     });
 
-    afficherRecents();
-  }
-
-  function filtrerParCategorie(cat) {
-    categorieFiltre = cat;
-    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(el => {
-      if (el.textContent.includes(cat)) {
-        el.classList.add('active');
-      }
-    });
-
-    // Sélection de la catégorie "Accueil" qui n'inclut pas le symbole du bouton
-    if(cat === 'Accueil') {
-      document.querySelector('.nav-item').classList.add('active');
+    // Gestion pagination (Affichée seulement si > 4 articles)
+    const pagin = document.getElementById('pagination');
+    if(listeAffichee.length > 4) {
+        pagin.style.display = 'block';
+        pagin.innerHTML = `<button class="page-btn active">1</button><button class="page-btn">2</button>`;
+    } else {
+        pagin.style.display = 'none';
     }
-
-    afficherArticles();
-  }
-
-  function rechercherArticle() {
-    const motCle = document.getElementById('recherche').value.toLowerCase();
-    const container = document.getElementById('articles-container');
-    container.innerHTML = '';
-
-    const resultats = articles.filter(a => 
-      a.titre.toLowerCase().includes(motCle) || 
-      a.contenu.toLowerCase().includes(motCle) || 
-      a.categorie.toLowerCase().includes(motCle)
-    );
-
-    if (resultats.length === 0) {
-      container.innerHTML = `<p style="padding: 20px; text-align: center; color: #777;">Aucun article trouvé...</p>`;
-      return;
-    }
-
-    resultats.reverse().forEach(article => {
-      const tagsHtml = article.tags ? (Array.isArray(article.tags) ? article.tags.map(t => `<a>#${t}</a>`).join(' ') : `<a>#${article.tags}</a>`) : '';
-      const postDiv = document.createElement('div');
-      postDiv.className = 'post';
-      postDiv.innerHTML = `
-        <div class="post-header">
-          <div>
-            <div class="post-title">${article.titre}</div>
-            <div><span class="post-category-badge">${article.categorie}</span></div>
-          </div>
-        </div>
-        <div class="post-body">
-          <p>${article.contenu}</p>
-        </div>
-        <div class="post-footer">
-          <span class="post-tags">🏷️ ${tagsHtml}</span>
-        </div>
-      `;
-      container.appendChild(postDiv);
-    });
   }
 
   function ajouterArticle() {
-    const titre = document.getElementById('art-titre').value;
-    const categorie = document.getElementById('art-cat').value;
-    const contenu = document.getElementById('art-contenu').value;
-    const auteur = document.getElementById('art-auteur').value || 'Anonyme';
-    const tagsInput = document.getElementById('art-tags').value;
-    const tags = tagsInput ? tagsInput.split(' ') : ['blog'];
+    const t = document.getElementById('art-titre').value;
+    const c = document.getElementById('art-cat').value;
+    const txt = document.getElementById('art-contenu').value;
+    
+    if(!t || !txt) return alert("Remplis tout !");
 
-    if (!titre || !contenu) {
-      alert("Veuillez remplir au moins le titre et le contenu !");
-      return;
-    }
-
-    // Heure bloquée au 25 Décembre 2015
-    const dateStr = '2015-12-25';
-
-    const nouveauPost = {
-      titre,
-      categorie,
-      contenu,
-      auteur,
-      date: dateStr, // Correction ici de l'ancienne variable constStr qui n'existait pas
-      tags
-    };
-
-    articles.push(nouveauPost);
-    localStorage.setItem('monblog_articles', JSON.stringify(articles));
-
+    articles.push({ titre: t, categorie: c, contenu: txt, date: "2015-12-25" });
+    localStorage.setItem('blog_v2_articles', JSON.stringify(articles));
+    
     document.getElementById('art-titre').value = '';
     document.getElementById('art-contenu').value = '';
-    document.getElementById('art-tags').value = '';
-
-    filtrerParCategorie(categorie);
+    afficherArticles();
   }
 
   function supprimerArticle(index) {
-    if (confirm("Voulez-vous vraiment supprimer cet article ?")) {
-      articles.splice(index, 1);
-      localStorage.setItem('monblog_articles', JSON.stringify(articles));
-      afficherArticles();
+    if(confirm("Supprimer ?")) {
+        articles.splice(index, 1);
+        localStorage.setItem('blog_v2_articles', JSON.stringify(articles));
+        afficherArticles();
     }
   }
 
-  function afficherRecents() {
-    const recents = document.getElementById('recents-container');
-    recents.innerHTML = '';
-    const derniers = articles.slice(-5).reverse();
-    derniers.forEach(a => {
-      recents.innerHTML += `
-        <li><a>${a.titre.substring(0, 30)}...</a><span class="rdate">${a.date}</span></li>
-      `;
+  function filtrerParCategorie(cat) {
+    filtreActuel = cat;
+    // Update menu style
+    document.querySelectorAll('.nav-item').forEach(el => {
+        el.classList.remove('active');
+        if(el.textContent.includes(cat)) el.classList.add('active');
     });
+    afficherArticles();
   }
 
+  // --- A PROPOS ---
+  function editerAPropos() {
+    const nouveauText = prompt("Modifier votre présentation :", document.getElementById('about-text').innerText);
+    if(nouveauText) {
+        document.getElementById('about-text').innerText = nouveauText;
+        localStorage.setItem('blog_v2_about', nouveauText);
+    }
+  }
+  
+  // Charger le texte "A propos" au démarrage
+  if(localStorage.getItem('blog_v2_about')) {
+      document.getElementById('about-text').innerText = localStorage.getItem('blog_v2_about');
+  }
+
+  // --- CHAT ---
+  function envoyerChat() {
+    const input = document.getElementById('chat-input');
+    if(!input.value) return;
+    const msg = document.createElement('div');
+    msg.className = 'chat-msg';
+    msg.innerHTML = `<strong>Visiteur:</strong> ${input.value}`;
+    document.getElementById('chat-messages').appendChild(msg);
+    input.value = '';
+  }
+
+  // Lancement
   afficherArticles();
-
-  // Gestion du chat local
-  const chatMessages = document.getElementById('chat-messages');
-  let chatData = JSON.parse(localStorage.getItem('monblog_chat')) || [];
-
-  function rendreChat() {
-    chatMessages.innerHTML = '';
-    chatData.forEach(m => {
-      const isMe = (m.pseudo === document.getElementById('chat-pseudo').value);
-      chatMessages.innerHTML += `
-        <div class="chat-msg ${isMe ? 'me' : 'other'}">
-          <div class="chat-avatar user-avatar">😎</div>
-          <div class="chat-bubble">
-            <div class="chat-name">${m.pseudo}</div>
-            <div>${m.texte}</div>
-            <div class="chat-time">${m.heure}</div>
-          </div>
-        </div>
-      `;
-    });
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  document.getElementById('chat-send').addEventListener('click', () => {
-    const pseudo = document.getElementById('chat-pseudo').value || 'Anonyme';
-    const texte = document.getElementById('chat-input').value;
-    if (!texte) return;
-
-    // Heure bloquée à 19h48
-    const heure = '19:48';
-    chatData.push({ pseudo, texte, heure });
-    localStorage.setItem('monblog_chat', JSON.stringify(chatData));
-    document.getElementById('chat-input').value = '';
-    rendreChat();
-  });
-
-  document.getElementById('chat-clear').addEventListener('click', () => {
-    localStorage.removeItem('monblog_chat');
-    chatData = [];
-    rendreChat();
-  });
-
-  rendreChat();
 </script>
+
 </body>
 </html>
